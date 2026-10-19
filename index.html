@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Sada je pretraga UNUTAR menija -->
     <nav class="meni">
         <div class="meni-linkovi">
             <a href="index.html">Home</a>
@@ -16,22 +15,25 @@
             <a href="biblioteka.html">Biblioteka</a>
         </div>
 
+        <!-- Ovde je polje za unos i PLAY -->
         <div class="unos-kontejner">
             <input type="text" id="yt-link" placeholder="Nalepi YouTube link...">
             <span class="play-dugme" onclick="pustiVideo()">PLAY</span>
         </div>
     </nav>
 
-    <!-- Prozor gde se pušta video -->
-    <div class="video-kontejner">
-        <iframe 
-            id="yt-plejer"
-            src="https://www.youtube.com/embed/zeQC5w7QVls?controls=1&rel=0" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
+    <!-- Ovaj kontejner drži i polje i video zajedno, da bi bili iste širine -->
+    <div class="desna-strana">
+        <div class="video-kontejner">
+            <iframe 
+                id="yt-plejer"
+                src="https://www.youtube.com/embed/zeQC5w7QVls?controls=1&rel=0" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
     </div>
 
     <script>
