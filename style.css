@@ -33,7 +33,7 @@ body {
 /* Stilovi za YouTube video u desnom uglu */
 .video-kontejner {
     position: fixed; 
-    top: 50px;
+    top: 80px;
     right: 20px;
     z-index: 100;
     width: 500px; /* Malo sam povećao širinu */
