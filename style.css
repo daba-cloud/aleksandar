@@ -6,17 +6,17 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Fiksirani meni na vrhu - sada ima dve strane */
+/* Fiksirani meni na vrhu */
 .meni {
     display: flex;
-    justify-content: space-between; /* Gura linkove levo, a pretragu desno */
-    align-items: center; /* Poravnava po sredini */
+    justify-content: space-between;
+    align-items: center;
     padding: 20px 45px;
     position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
-    box-sizing: border-box; /* Da padding ne bi prešao 100% širine */
+    box-sizing: border-box;
     background-color: #000000;
     z-index: 1000;
 }
@@ -43,10 +43,9 @@ body {
     display: flex;
     align-items: center;
     gap: 15px; 
-    width: 400px; /* Fiksna širina pretrage u meniju */
+    width: 600px; /* ŠIRINA BELOG POLJA */
 }
 
-/* Polje za unos */
 .unos-kontejner input {
     background-color: #ffffff;
     color: #000000; 
@@ -62,7 +61,6 @@ body {
     color: #666666; 
 }
 
-/* Reč PLAY */
 .play-dugme {
     color: #d1d1d1;
     font-size: 18px;
@@ -77,14 +75,19 @@ body {
     color: #ffffff;
 }
 
-/* YouTube plejer - sada je više gore jer nema polja iznad */
-.video-kontejner {
-    position: fixed; 
-    top: 100px; /* Spušten tačno ispod menija */
-    right: 20px;
+/* Desna strana gde je video */
+.desna-strana {
+    position: fixed;
+    top: 80px; /* Odmah ispod menija */
+    right: 45px; /* Poravnato sa desnom ivicom menija */
+    width: 600px; /* ISTA ŠIRINA KAO BELO POLJE */
     z-index: 100;
-    width: 600px;  
-    height: 337px; 
+}
+
+/* Video unutar desne strane */
+.video-kontejner {
+    width: 100%; /* Zauzima svu širinu roditelja (600px) */
+    aspect-ratio: 16 / 9; /* Automatski računa visinu da bude 16:9 */
     border-radius: 10px;
     overflow: hidden; 
     border: 2px solid #333;
