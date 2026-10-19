@@ -6,12 +6,11 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Meni je sada fiksiran za vrh ekrana */
 .meni {
     display: flex;
     gap: 32px;
     padding: 35px 45px;
-    position: fixed; /* Zakucava meni za vrh */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
@@ -31,17 +30,19 @@ body {
     color: #ffffff;
 }
 
-/* Stilovi za video u desnom uglu */
+/* Stilovi za YouTube video u desnom uglu */
 .video-kontejner {
-    position: fixed; /* Zakucava video za ekran */
+    position: fixed; 
     top: 20px;
     right: 20px;
     z-index: 100;
+    width: 400px; /* Širina */
+    height: 225px; /* Visina (16:9 odnos) */
 }
 
-video {
-    width: 400px;
-    max-width: 100%; 
+iframe {
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
     border: 2px solid #333;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
