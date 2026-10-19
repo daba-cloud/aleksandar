@@ -1,39 +1,7 @@
-body {
-    background-color: #000000;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-.meni {
-    display: flex;
-    gap: 32px;
-    padding: 35px 45px;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #000000;
-    z-index: 1000;
-}
-
-.meni a {
-    color: #d1d1d1;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 400;
-    transition: color 0.2s ease;
-}
-
-.meni a:hover {
-    color: #ffffff;
-}
-
-/* YouTube plejer u desnom uglu - sada je malo spušten */
+/* YouTube plejer u desnom uglu */
 .video-kontejner {
     position: fixed; 
-    top: 100px; 
+    top: 100px; /* Vraćeno na 100px, kako je i bilo */
     right: 20px;
     z-index: 100;
     width: 600px;  
@@ -44,41 +12,35 @@ body {
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
-iframe {
-    width: 100%;
-    height: 100%;
-    border: none; 
-}
-
-/* Kontejner za unos i PLAY - pozicioniran tačno IZNAD videa */
+/* Kontejner za unos i PLAY - sada je podignut iznad videa */
 .unos-kontejner {
     position: fixed;
-    top: 75px; /* Malo iznad videa */
-    right: 20px; /* Poravnato sa desnom ivicom videa */
-    width: 600px; /* Ista širina kao video */
+    top: 55px; /* Podignuto! */
+    right: 20px; 
+    width: 600px; 
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px; 
     z-index: 100;
 }
 
 /* Polje za unos - bela pozadina, crna slova */
 .unos-kontejner input {
     background-color: #ffffff;
-    color: #000000; /* Crna slova dok kucaš/lepiš */
+    color: #000000; 
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 6px 12px; /* Malo tanje polje da bi stalo u taj prostor */
+    border-radius: 4px;
     font-size: 14px;
-    width: 100%; /* Zauzima ostatak prostora */
+    width: 100%; 
     outline: none;
 }
 
 .unos-kontejner input::placeholder {
-    color: #666666; /* Siva slova za onaj tekst "Nalepi YouTube link..." */
+    color: #666666; 
 }
 
-/* Reč PLAY - ista veličina i font kao meni */
+/* Reč PLAY */
 .play-dugme {
     color: #d1d1d1;
     font-size: 18px;
@@ -86,6 +48,8 @@ iframe {
     transition: color 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap; 
+    margin-left: 5px; /* Dodao sam malo prostora sa leve strane */
 }
 
 .play-dugme:hover {
