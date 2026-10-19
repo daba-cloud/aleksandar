@@ -13,10 +13,10 @@
         <a href="#">About</a>
     </nav>
 
-    <!-- Polje za unos linka -->
-    <div class="unos-linka">
-        <input type="text" id="yt-link" placeholder="Nalepi YouTube link ovde...">
-        <button onclick="pustiVideo()">Pusti</button>
+    <!-- Kontejner za unos i PLAY, sada se nalazi iznad videa -->
+    <div class="unos-kontejner">
+        <input type="text" id="yt-link" placeholder="Nalepi YouTube link...">
+        <span class="play-dugme" onclick="pustiVideo()">PLAY</span>
     </div>
 
     <!-- Prozor gde se pušta video -->
@@ -31,13 +31,11 @@
         </iframe>
     </div>
 
-    <!-- JavaScript koji radi u pozadini -->
     <script>
         function pustiVideo() {
             let link = document.getElementById("yt-link").value;
             let videoId = "";
 
-            // Prepoznaje različite formate YouTube linkova
             if (link.includes("youtu.be/")) {
                 videoId = link.split("youtu.be/")[1].split("?")[0];
             } else if (link.includes("watch?v=")) {
@@ -49,9 +47,16 @@
                 return;
             }
 
-            // Menja izvor videa u prozoru
             document.getElementById("yt-plejer").src = "https://www.youtube.com/embed/" + videoId + "?controls=1&rel=0";
         }
+
+        // Omogućava da pritisneš Enter na tastaturi umesto da klikneš na PLAY
+        document.getElementById("yt-link").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                pustiVideo();
+            }
+        });
     </script>
 </body>
 </html>
