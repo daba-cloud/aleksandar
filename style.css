@@ -30,16 +30,56 @@ body {
     color: #ffffff;
 }
 
-/* Stilovi za YouTube video u desnom uglu */
+/* Stilovi za polje za unos linka */
+.unos-linka {
+    position: fixed;
+    top: 100px; /* Malo ispod menija */
+    left: 45px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.unos-linka input {
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 300px;
+    outline: none;
+}
+
+.unos-linka input:focus {
+    border-color: #888;
+}
+
+.unos-linka button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.unos-linka button:hover {
+    background-color: #555;
+}
+
+/* YouTube plejer u desnom uglu */
 .video-kontejner {
     position: fixed; 
-    top: 95px;
+    top: 100px; /* Spušteno niže */
     right: 20px;
     z-index: 100;
-    width: 500px; /* Malo sam povećao širinu */
-    aspect-ratio: 16 / 9; /* OVO JE KLJUČNO - održava proporcije videa */
+    width: 600px;  
+    height: 337px; 
     border-radius: 10px;
-    overflow: hidden; /* Da se zaobljene ivice vide i na videu */
+    overflow: hidden; 
     border: 2px solid #333;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
@@ -47,5 +87,5 @@ body {
 iframe {
     width: 100%;
     height: 100%;
-    border: none; /* Skidamo ivicu sa samog iframe-a jer je ima kontejner */
+    border: none; 
 }
