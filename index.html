@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Sada je pretraga UNUTAR menija -->
     <nav class="meni">
-        <a href="#">Home</a>
-        <a href="#">Live</a>
-        <a href="#">About</a>
-    </nav>
+        <div class="meni-linkovi">
+            <a href="index.html">Home</a>
+            <a href="#">Live</a>
+            <a href="#">About</a>
+            <a href="biblioteka.html">Biblioteka</a>
+        </div>
 
-    <!-- Polje za unos i PLAY -->
-    <div class="unos-kontejner">
-        <input type="text" id="yt-link" placeholder="Nalepi YouTube link...">
-        <span class="play-dugme" onclick="pustiVideo()">PLAY</span>
-    </div>
+        <div class="unos-kontejner">
+            <input type="text" id="yt-link" placeholder="Nalepi YouTube link...">
+            <span class="play-dugme" onclick="pustiVideo()">PLAY</span>
+        </div>
+    </nav>
 
     <!-- Prozor gde se pušta video -->
     <div class="video-kontejner">
@@ -50,7 +53,6 @@
             document.getElementById("yt-plejer").src = "https://www.youtube.com/embed/" + videoId + "?controls=1&rel=0";
         }
 
-        // Omogućava da pritisneš Enter na tastaturi umesto da klikneš na PLAY
         document.getElementById("yt-link").addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 event.preventDefault();
