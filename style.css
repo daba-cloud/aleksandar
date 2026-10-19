@@ -30,50 +30,10 @@ body {
     color: #ffffff;
 }
 
-/* Stilovi za polje za unos linka */
-.unos-linka {
-    position: fixed;
-    top: 100px; /* Malo ispod menija */
-    left: 45px;
-    display: flex;
-    gap: 10px;
-    z-index: 1000;
-}
-
-.unos-linka input {
-    background-color: #1a1a1a;
-    color: white;
-    border: 1px solid #333;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 300px;
-    outline: none;
-}
-
-.unos-linka input:focus {
-    border-color: #888;
-}
-
-.unos-linka button {
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.unos-linka button:hover {
-    background-color: #555;
-}
-
-/* YouTube plejer u desnom uglu */
+/* YouTube plejer u desnom uglu - sada je malo spušten */
 .video-kontejner {
     position: fixed; 
-    top: 100px; /* Spušteno niže */
+    top: 100px; 
     right: 20px;
     z-index: 100;
     width: 600px;  
@@ -88,4 +48,46 @@ iframe {
     width: 100%;
     height: 100%;
     border: none; 
+}
+
+/* Kontejner za unos i PLAY - pozicioniran tačno IZNAD videa */
+.unos-kontejner {
+    position: fixed;
+    top: 75px; /* Malo iznad videa */
+    right: 20px; /* Poravnato sa desnom ivicom videa */
+    width: 600px; /* Ista širina kao video */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 100;
+}
+
+/* Polje za unos - bela pozadina, crna slova */
+.unos-kontejner input {
+    background-color: #ffffff;
+    color: #000000; /* Crna slova dok kucaš/lepiš */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%; /* Zauzima ostatak prostora */
+    outline: none;
+}
+
+.unos-kontejner input::placeholder {
+    color: #666666; /* Siva slova za onaj tekst "Nalepi YouTube link..." */
+}
+
+/* Reč PLAY - ista veličina i font kao meni */
+.play-dugme {
+    color: #d1d1d1;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.play-dugme:hover {
+    color: #ffffff;
 }
