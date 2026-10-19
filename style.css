@@ -36,14 +36,16 @@ body {
     top: 20px;
     right: 20px;
     z-index: 100;
-    width: 400px; /* Širina */
-    height: 225px; /* Visina (16:9 odnos) */
+    width: 500px; /* Malo sam povećao širinu */
+    aspect-ratio: 16 / 9; /* OVO JE KLJUČNO - održava proporcije videa */
+    border-radius: 10px;
+    overflow: hidden; /* Da se zaobljene ivice vide i na videu */
+    border: 2px solid #333;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 iframe {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
-    border: 2px solid #333;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    border: none; /* Skidamo ivicu sa samog iframe-a jer je ima kontejner */
 }
