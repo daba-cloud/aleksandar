@@ -13,15 +13,45 @@
         <a href="#">About</a>
     </nav>
 
-    <!-- OVO JE YOUTUBE VIDEO U DESNOM UGLU -->
+    <!-- Polje za unos linka -->
+    <div class="unos-linka">
+        <input type="text" id="yt-link" placeholder="Nalepi YouTube link ovde...">
+        <button onclick="pustiVideo()">Pusti</button>
+    </div>
+
+    <!-- Prozor gde se pušta video -->
     <div class="video-kontejner">
         <iframe 
-            src="https://www.youtube.com/embed/zeQC5w7QVls" 
+            id="yt-plejer"
+            src="https://www.youtube.com/embed/zeQC5w7QVls?controls=1&rel=0" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
         </iframe>
     </div>
+
+    <!-- JavaScript koji radi u pozadini -->
+    <script>
+        function pustiVideo() {
+            let link = document.getElementById("yt-link").value;
+            let videoId = "";
+
+            // Prepoznaje različite formate YouTube linkova
+            if (link.includes("youtu.be/")) {
+                videoId = link.split("youtu.be/")[1].split("?")[0];
+            } else if (link.includes("watch?v=")) {
+                videoId = link.split("watch?v=")[1].split("&")[0];
+            } else if (link.includes("embed/")) {
+                videoId = link.split("embed/")[1].split("?")[0];
+            } else {
+                alert("Nisam prepoznao link. Molim te nalepi ispravan YouTube link.");
+                return;
+            }
+
+            // Menja izvor videa u prozoru
+            document.getElementById("yt-plejer").src = "https://www.youtube.com/embed/" + videoId + "?controls=1&rel=0";
+        }
+    </script>
 </body>
 </html>
