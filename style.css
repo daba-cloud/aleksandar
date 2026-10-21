@@ -20,18 +20,32 @@ html, body {
     height: 100%;
     width: 100%;
     padding: 20px;
-    gap: 30px;
+    gap: 40px;
+    background: radial-gradient(circle at 50% 30%, #1a0a14 0%, #000000 70%);
 }
 
-/* Video kontejner */
+/* Video kontejner sa nežnim sjajem */
 .video-kontejner {
     width: 100%;
     max-width: 500px;
     aspect-ratio: 16 / 9;
-    border-radius: 10px;
+    border-radius: 14px;
     overflow: hidden;
-    border: 2px solid #333;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    border: 1px solid #333;
+    box-shadow: 0 0 25px rgba(255, 60, 120, 0.25),
+                0 8px 30px rgba(0, 0, 0, 0.7);
+    animation: sjaj 3s ease-in-out infinite;
+}
+
+@keyframes sjaj {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 60, 120, 0.20),
+                    0 8px 30px rgba(0, 0, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 60, 120, 0.45),
+                    0 8px 30px rgba(0, 0, 0, 0.7);
+    }
 }
 
 .video-kontejner iframe {
@@ -41,31 +55,69 @@ html, body {
     display: block;
 }
 
-/* Dugme JELENA */
+/* Dugme KLIKNI JELENA */
 #jelena-dugme {
-    background-color: #ffffff;
-    color: #000000;
+    position: relative;
+    background: linear-gradient(135deg, #ff3c78, #ff7aa2);
+    color: #ffffff;
     border: none;
-    padding: 16px 48px;
-    font-size: 20px;
-    font-weight: 600;
+    padding: 18px 56px;
+    font-size: 19px;
+    font-weight: 700;
     letter-spacing: 2px;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.15s ease, background-color 0.2s ease;
+    overflow: hidden;
     -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 6px 20px rgba(255, 60, 120, 0.45);
+    animation: puls 2s ease-in-out infinite;
+    transition: transform 0.15s ease;
 }
 
 #jelena-dugme:active {
-    transform: scale(0.95);
-    background-color: #cccccc;
+    transform: scale(0.94);
+}
+
+@keyframes puls {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 20px rgba(255, 60, 120, 0.45);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(255, 60, 120, 0.75);
+    }
+}
+
+/* Sjaj koji prelazi preko dugmeta */
+#jelena-dugme::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: preliv 2.5s ease-in-out infinite;
+}
+
+@keyframes preliv {
+    0% { left: -100%; }
+    60%, 100% { left: 100%; }
+}
+
+.tekst-dugmeta {
+    position: relative;
+    z-index: 1;
 }
 
 /* ===== DRUGA STRANICA (poruka) ===== */
 #poruka {
     display: none;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 25px;
     height: 100%;
     width: 100%;
     background-color: #000000;
@@ -83,16 +135,31 @@ html, body {
     font-weight: 700;
     letter-spacing: 2px;
     margin: 0;
-    animation: pojaviSe 0.8s ease;
+    animation: pojaviSe 0.9s ease;
+}
+
+#poruka .srce {
+    color: #ff3c78;
+    font-size: 40px;
+    animation: kucanje 1.2s ease-in-out infinite;
+}
+
+#poruka .srce:nth-child(3) {
+    animation-delay: 0.3s;
 }
 
 @keyframes pojaviSe {
     from {
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.6);
     }
     to {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+@keyframes kucanje {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
 }
