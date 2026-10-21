@@ -2,10 +2,15 @@
     box-sizing: border-box;
 }
 
-html, body {
+html {
+    background-color: #000000;
+    height: 100%;
+}
+
+body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100vh;
     background-color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     overflow: hidden;
@@ -15,7 +20,7 @@ html, body {
 #pocetna,
 #poruka,
 #treca {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     padding: 20px;
     display: flex;
@@ -24,14 +29,15 @@ html, body {
     justify-content: center;
     gap: 30px;
     text-align: center;
+    background-color: #000000;
 }
 
 /* ===== PRVA STRANICA ===== */
 #pocetna {
-    background: radial-gradient(circle at 50% 30%, #1a0a14 0%, #000000 70%);
+    background-color: #000000;
 }
 
-/* ===== VIDEO KONTEJNER (važi za sve) ===== */
+/* ===== VIDEO KONTEJNER ===== */
 .video-kontejner {
     width: 100%;
     max-width: 500px;
@@ -118,7 +124,7 @@ html, body {
     z-index: 1;
 }
 
-/* ===== DRUGA STRANICA (poruka) ===== */
+/* ===== DRUGA STRANICA ===== */
 #poruka {
     display: none;
     background-color: #000000;
@@ -201,7 +207,7 @@ html, body {
 /* ===== TREĆA STRANICA ===== */
 #treca {
     display: none;
-    background: radial-gradient(circle at 50% 30%, #0a141a 0%, #000000 70%);
+    background-color: #000000;
 }
 
 #treca.aktivna {
