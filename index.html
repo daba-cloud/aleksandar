@@ -30,7 +30,23 @@
         <div class="srce">❤</div>
         <p id="tekst-poruke"></p>
         <div class="srce">❤</div>
-        <button id="nazad-dugme" onclick="vratiSe()">↩ Vrati se</button>
+        <button id="nazad-dugme" onclick="prikaziTrecu()">Vrati se</button>
+    </div>
+
+    <!-- TREĆA STRANICA: drugi video + dugme -->
+    <div id="treca">
+        <div class="video-kontejner">
+            <iframe
+                src="https://www.youtube.com/embed/5q9pY_2Gp30?controls=1&rel=0&enablejsapi=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <button id="brat-dugme">
+            <span class="tekst-dugmeta">LJUBI TE BRAT</span>
+        </button>
     </div>
 
     <!-- Kontejner za srca koja padaju -->
@@ -74,7 +90,7 @@
             document.getElementById("srca-padaju").innerHTML = "";
         }
 
-        /* ===== PRIKAŽI PORUKU ===== */
+        /* ===== PRIKAŽI PORUKU (druga stranica) ===== */
         function prikaziPoruku() {
             document.getElementById("pocetna").style.display = "none";
 
@@ -84,7 +100,7 @@
             ukucajPoruku();
             napraviSrca();
 
-            /* Pojačaj muziku preko YouTube API-ja (ako je dostupan) */
+            /* Pojačaj muziku preko YouTube API-ja */
             try {
                 const iframe = document.getElementById("yt-plejer");
                 iframe.contentWindow.postMessage(
@@ -96,10 +112,10 @@
             } catch (e) { /* ignorisi */ }
         }
 
-        /* ===== POVRATAK NA VIDEO ===== */
-        function vratiSe() {
+        /* ===== PRIKAŽI TREĆU STRANICU ===== */
+        function prikaziTrecu() {
             document.getElementById("poruka").classList.remove("aktivna");
-            document.getElementById("pocetna").style.display = "flex";
+            document.getElementById("treca").classList.add("aktivna");
             clearInterval(kucanjeTimer);
             ocistiSrca();
         }
