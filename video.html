@@ -34,20 +34,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Poravnava sadržaj na vrh */
-            padding: 20px; /* Mali razmak od ivica prozora */
+            justify-content: flex-start;
+            padding: 20px;
             gap: 20px;
         }
 
-        /* OKVIR ZA PLEJER - Sada se prilagođava prozoru */
+        /* OKVIR ZA PLEJER - Suptilni sjaj, bez teksta */
         .plejer-okvir {
             width: 100%;
-            height: 100%; /* Zauzima svu preostalu visinu */
-            max-width: 1200px; /* Maksimalna širina da ne bude preveliko na ogromnim ekranima */
-            max-height: 80vh; /* Maksimalna visina da uvek ostane mesta za unos ispod */
+            height: 100%;
+            max-width: 1200px;
+            max-height: 80vh;
+            background-color: #050505; 
             
-            background-color: #000; /* Crna pozadina umesto sive */
-            /* border: 1px solid rgba(255, 255, 255, 0.15); <- OBRISANA GORNJA CRTA */
+            /* Tankа linija i blagi sjaj */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.03), inset 0 0 20px rgba(255, 255, 255, 0.01);
+            
             border-radius: 4px;
             overflow: hidden;
             display: flex;
@@ -66,10 +69,10 @@
             display: flex;
             align-items: center;
             width: 100%;
-            max-width: 800px; /* Uže polje za unos */
+            max-width: 800px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             padding-bottom: 5px;
-            margin-top: auto; /* Gura unos na dno ako ima mesta */
+            margin-top: auto;
             margin-bottom: 20px;
         }
 
@@ -82,19 +85,18 @@
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 18px;
             outline: none;
-            text-transform: lowercase; /* Tekst malim slovima */
-            letter-spacing: 2px; /* Veći razmak između slova */
+            text-transform: lowercase;
+            letter-spacing: 2px;
         }
 
-        /* Placeholder stil */
         #link-input::placeholder {
             color: rgba(255, 255, 255, 0.3);
-            text-transform: lowercase; /* Placeholder malim slovima */
-            letter-spacing: 2px; /* Razmak između slova */
+            text-transform: lowercase;
+            letter-spacing: 2px;
             font-weight: 300;
         }
 
-        /* DUGME PLAY (Samo reč) */
+        /* DUGME PLAY */
         #pusti-dugme {
             background-color: transparent;
             color: #888888;
@@ -128,12 +130,11 @@
 <body>
 
     <div class="video-kontejner">
-        <!-- Plejer koji se prilagođava veličini prozora -->
+        <!-- Potpuno prazan plejer sa diskretnim sjajem -->
         <div class="plejer-okvir" id="plejer"></div>
 
         <!-- Diskretan unos linka -->
         <div class="unos-linka">
-            <!-- Tekst je sada na engleskom, malim slovima i sa većim razmakom -->
             <input type="text" id="link-input" placeholder="paste youtube link" autocomplete="off">
             <button id="pusti-dugme">Play</button>
         </div>
@@ -182,15 +183,11 @@
             }
         }
 
-        dugmePusti.addEventListener('click', () => {
-            // Čistimo plejer pre nego što pustimo novi video
-            plejer.innerHTML = ''; 
-            pustiVideo();
-        });
+        dugmePusti.addEventListener('click', pustiVideo);
 
         inputLink.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                dugmePusti.click(); // Klik na dugme da bi se pokrenela ista logika
+                pustiVideo();
             }
         });
     </script>
