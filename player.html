@@ -34,32 +34,28 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center; /* Centriramo sve po sredini */
             padding: 20px;
             gap: 20px;
         }
 
-        /* OKVIR ZA PLEJER - BEZ LINIJA I BEZ SJAJA */
+        /* OKVIR ZA PLEJER - BEZ IKAKVIH LINIJA */
         .plejer-okvir {
             width: 100%;
             height: 100%;
             max-width: 1200px;
             max-height: 80vh;
-            background-color: #000000; /* Potpuno crna, stapa se sa pozadinom */
-            
-            /* OBRISANE LINIJE I SJAJ */
+            background-color: #000000;
+            /* Nema bordera, nema senke, nema ničega */
             border: none;
             box-shadow: none;
-            
-            border-radius: 0; /* Nema zaobljenih ivica */
-            overflow: hidden;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
         }
 
-        /* Sam video element */
         .plejer-okvir video {
             width: 100%;
             height: 100%;
@@ -67,60 +63,38 @@
             outline: none;
         }
 
-        /* Tekst za izbor fajla */
-        .unos-fajla {
-            position: absolute;
-            bottom: 15px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            z-index: 10;
-            
-            /* OBRISANA DONJA LINIJA */
-            border-bottom: none; 
-            padding-bottom: 0;
+        /* DUGME "OPEN" ISPOD VIDEJA */
+        .dugme-open {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.3); /* Vrlo providno, da bude diskretno */
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 16px;
+            letter-spacing: 8px; /* Veliki razmak između slova */
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            margin-top: 10px;
         }
 
-        /* Sakrivamo ružno default dugme za izbor fajla */
+        .dugme-open:hover, .dugme-open:active {
+            color: #ffffff;
+        }
+
+        /* Sakrivamo input za fajl */
         input[type="file"] {
             display: none;
         }
 
-        /* Stiliziramo labelu */
-        .label-fajl {
-            background: transparent;
-            border: none;
-            color: rgba(255, 255, 255, 0.4); /* Još providnije */
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 14px; /* Smanjeno sa 16px */
-            outline: none;
-            text-transform: lowercase;
-            letter-spacing: 4px; /* POVEĆAN RAZMAK IZMEĐU SLOVA */
-            word-spacing: 6px; /* DODAT RAZMAK IZMEĐU REČI */
-            cursor: pointer;
-            transition: color 0.3s ease;
-            text-align: right;
-            white-space: nowrap;
-        }
-
-        .label-fajl:hover, .label-fajl:active {
-            color: #ffffff;
-        }
-
-        /* Prilagođavanje za mobilne telefone */
+        /* Prilagođavanje za mobilne */
         @media (max-width: 600px) {
             .video-kontejner {
                 padding: 10px;
-                gap: 10px;
             }
-            .unos-fajla {
-                bottom: 10px;
-                right: 10px;
-            }
-            .label-fajl {
-                font-size: 12px;
-                letter-spacing: 3px;
-                word-spacing: 4px;
+            .dugme-open {
+                font-size: 14px;
+                letter-spacing: 6px;
             }
         }
     </style>
@@ -128,16 +102,14 @@
 <body>
 
     <div class="video-kontejner">
-        <!-- Plejer bez ikakvih linija -->
-        <div class="plejer-okvir" id="plejer">
+        <!-- Plejer bez linija -->
+        <div class="plejer-okvir">
             <video id="lokalni-video" controls></video>
-            
-            <!-- Tekst za izbor fajla bez linije ispod -->
-            <div class="unos-fajla">
-                <input type="file" id="izbor-fajla" accept="video/*">
-                <label for="izbor-fajla" class="label-fajl">select video from device</label>
-            </div>
         </div>
+
+        <!-- Dugme OPEN ispod videa -->
+        <input type="file" id="izbor-fajla" accept="video/*">
+        <label for="izbor-fajla" class="dugme-open">OPEN</label>
     </div>
 
     <script>
