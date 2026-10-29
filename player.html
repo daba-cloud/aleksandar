@@ -61,7 +61,7 @@
         .plejer-okvir video {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Da se vidi ceo video bez sečenja */
+            object-fit: contain;
             outline: none;
         }
 
@@ -69,6 +69,7 @@
         .unos-fajla {
             display: flex;
             align-items: center;
+            justify-content: flex-end; /* Poravnava sadržaj na desnu stranu */
             width: 100%;
             max-width: 800px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -82,12 +83,11 @@
             display: none;
         }
 
-        /* Stiliziramo labelu da izgleda kao običan tekst */
+        /* Stiliziramo labelu da izgleda kao običan tekst (sada je na desnoj strani) */
         .label-fajl {
-            flex: 1;
             background: transparent;
             border: none;
-            color: #888888; /* Siva boja */
+            color: #888888;
             padding: 10px 0;
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 18px;
@@ -96,29 +96,10 @@
             letter-spacing: 2px;
             cursor: pointer;
             transition: color 0.3s ease;
+            text-align: right; /* Tekst je poravnat udesno */
         }
 
         .label-fajl:hover, .label-fajl:active {
-            color: #ffffff;
-        }
-
-        /* DUGME SELECT FILE */
-        .dugme-select {
-            background-color: transparent;
-            color: #888888;
-            border: none;
-            padding: 10px 0 10px 20px;
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        /* Ovaj deo je samo vizuelni, da izgleda kao dugme pored linije */
-        .unos-fajla:hover .dugme-select {
             color: #ffffff;
         }
 
@@ -146,11 +127,8 @@
         <div class="unos-fajla">
             <input type="file" id="izbor-fajla" accept="video/*">
             
-            <!-- Labela izgleda kao tekst koji piše "select video from device" -->
+            <!-- Tekst je sada sa desne strane i cela linija je klikabilna -->
             <label for="izbor-fajla" class="label-fajl">select video from device</label>
-            
-            <!-- Reč koja liči na dugme -->
-            <span class="dugme-select">SELECT</span>
         </div>
     </div>
 
