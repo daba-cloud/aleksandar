@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aleksandar — Player</title>
+    
+    <!-- Barlow Condensed Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: #000000;
+            height: 100%;
+            width: 100%;
+            color: #ffffff;
+            font-family: 'Barlow Condensed', sans-serif;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* GLAVNI KONTEJNER */
+        .video-kontejner {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* OKVIR ZA PLEJER - Isti diskretni sjaj */
+        .plejer-okvir {
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            max-height: 80vh;
+            background-color: #050505; 
+            
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.03), inset 0 0 20px rgba(255, 255, 255, 0.01);
+            
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Sam video element */
+        .plejer-okvir video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Da se vidi ceo video bez sečenja */
+            outline: none;
+        }
+
+        /* DISKRETAN PROSTOR ZA IZBOR FAJLA */
+        .unos-fajla {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Sakrivamo ružno default dugme za izbor fajla */
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Stiliziramo labelu da izgleda kao običan tekst */
+        .label-fajl {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #888888; /* Siva boja */
+            padding: 10px 0;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 18px;
+            outline: none;
+            text-transform: lowercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .label-fajl:hover, .label-fajl:active {
+            color: #ffffff;
+        }
+
+        /* DUGME SELECT FILE */
+        .dugme-select {
+            background-color: transparent;
+            color: #888888;
+            border: none;
+            padding: 10px 0 10px 20px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        /* Ovaj deo je samo vizuelni, da izgleda kao dugme pored linije */
+        .unos-fajla:hover .dugme-select {
+            color: #ffffff;
+        }
+
+        /* Prilagođavanje za mobilne telefone */
+        @media (max-width: 600px) {
+            .video-kontejner {
+                padding: 10px;
+                gap: 10px;
+            }
+            .unos-fajla {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-kontejner">
+        <!-- Prazan plejer sa diskretnim sjajem -->
+        <div class="plejer-okvir" id="plejer">
+            <video id="lokalni-video" controls></video>
+        </div>
+
+        <!-- Diskretan prostor za izbor fajla -->
+        <div class="unos-fajla">
+            <input type="file" id="izbor-fajla" accept="video/*">
+            
+            <!-- Labela izgleda kao tekst koji piše "select video from device" -->
+            <label for="izbor-fajla" class="label-fajl">select video from device</label>
+            
+            <!-- Reč koja liči na dugme -->
+            <span class="dugme-select">SELECT</span>
+        </div>
+    </div>
+
+    <script>
+        const izborFajla = document.getElementById('izbor-fajla');
+        const lokalniVideo = document.getElementById('lokalni-video');
+
+        // Kada korisnik izabere fajl, učitavamo ga u video plejer
+        izborFajla.addEventListener('change', function(event) {
+            const fajl = event.target.files[0]; 
+            
+            if (fajl) {
+                const urlFajla = URL.createObjectURL(fajl);
+                lokalniVideo.src = urlFajla;
+                lokalniVideo.play();
+            }
+        });
+    </script>
+
+</body>
+</html>
