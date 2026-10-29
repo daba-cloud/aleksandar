@@ -35,7 +35,7 @@
             align-items: center;
             width: 100%;
             padding-top: 30px;
-            border-bottom: 2px solid #ffffff; /* PRVA LINIJA (Debela) */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* PRVA LINIJA - SADA ISTA KAO DONJA */
         }
 
         /* NASLOV */
@@ -117,21 +117,100 @@
             width: 100%;
         }
 
-        /* --- NOVI DEO: DRUGA LINIJA --- */
-        .druga-linija {
+        /* --- DONJI DEO (IZMEĐU DVE LINIJE) --- */
+        .donji-deo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            padding: 0 10%; 
             width: 100%;
-            height: 100%; /* Zauzima sav preostali prostor */
-            position: relative;
         }
 
-        .druga-linija::before {
-            content: '';
-            position: absolute;
-            top: 40%; /* Pozicija linije na 40% visine ekrana */
-            left: 0;
+        /* Kontejner za dve kolone */
+        .kolone {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             width: 100%;
-            height: 1px; /* Tanka linija */
-            background-color: rgba(255, 255, 255, 0.3); /* Blago providna bela */
+            margin-bottom: 60px; 
+        }
+
+        .kolona {
+            width: 45%; 
+        }
+
+        .kolona h3 {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .kolona p {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            line-height: 1.5;
+            color: #cccccc;
+            text-transform: none; 
+        }
+
+        .kolona a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Polje za email */
+        .email-unos {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            padding-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        .email-unos input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 16px;
+            outline: none;
+            letter-spacing: 1px;
+            text-transform: lowercase; 
+        }
+
+        .email-unos input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: none;
+        }
+
+        .email-unos button {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            padding: 0 10px;
+            transition: opacity 0.3s;
+        }
+
+        .email-unos button:hover {
+            opacity: 0.5;
+        }
+
+        /* --- DRUGA TANKA LINIJA NA DNU --- */
+        .donja-linija {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3); /* ISTA BOJA I DEBLJINA KAO GORNJA */
         }
 
         /* Prilagođavanje za mobilne telefone */
@@ -155,6 +234,13 @@
             .gornji-ikonice svg {
                 width: 18px;
                 height: 18px;
+            }
+            .kolone {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .kolona {
+                width: 100%;
             }
         }
 
@@ -200,8 +286,32 @@
         </div>
     </div>
 
-    <!-- NOVI DEO: Ostatak ekrana sa drugom linijom na sredini -->
-    <div class="druga-linija"></div>
+    <!-- DONJI DEO: Kontakt i Email -->
+    <div class="donji-deo">
+        <div class="kolone">
+            <!-- Leva kolona: Kontakt -->
+            <div class="kolona">
+                <h3>CONTACT</h3>
+                <p>
+                    Ako imaš bilo kakvo pitanje ili predlog, slobodno mi piši na <a href="mailto:aleksandar@email.com">aleksandar@email.com</a>. 
+                    Uvek sam dostupan za saradnju i razgovor.
+                </p>
+            </div>
+
+            <!-- Desna kolona: Newsletter (Email) -->
+            <div class="kolona">
+                <h3>NEWSLETTER</h3>
+                <p>Prijavi se da budeš u toku sa najnovijim sadržajem.</p>
+                <div class="email-unos">
+                    <input type="email" placeholder="enter your email address" aria-label="Email">
+                    <button type="button">OK</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Donja tanka linija -->
+        <div class="donja-linija"></div>
+    </div>
 
 </body>
 </html>
