@@ -29,7 +29,7 @@
             overflow: hidden;
         }
 
-        /* Zaglavlje sa navigacijom (isto kao na indexu) */
+        /* ZAGLAVLJE (Navigacija - isto kao na indexu) */
         .zaglavlje {
             display: flex;
             justify-content: center;
@@ -38,7 +38,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             background-color: #000000;
             z-index: 10;
-            gap: 40px; /* Razmak između reči */
+            gap: 40px;
             height: 70px;
         }
 
@@ -72,7 +72,7 @@
             width: 100%;
         }
 
-        /* Glavni kontejner za plejer */
+        /* GLAVNI KONTEJNER */
         .video-kontejner {
             flex: 1;
             display: flex;
@@ -80,9 +80,10 @@
             align-items: center;
             padding: 40px 20px;
             gap: 20px;
+            overflow-y: auto; /* Dozvoljava skrol ako je potrebno */
         }
 
-        /* Okvir za YouTube plejer */
+        /* OKVIR ZA PLEJER */
         .plejer-okvir {
             width: 100%;
             max-width: 900px;
@@ -94,6 +95,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .plejer-okvir iframe {
@@ -102,21 +104,22 @@
             border: none;
         }
 
-        /* DISKRETAN PROSTOR ZA UNOS LINKOVA */
+        /* DISKRETAN PROSTOR ZA UNOS (Samo donja linija) */
         .unos-linka {
             display: flex;
             align-items: center;
             width: 100%;
             max-width: 900px;
             margin-top: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Samo tanka donja linija */
-            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+            flex-shrink: 0;
         }
 
         #link-input {
             flex: 1;
             background: transparent;
-            border: none; /* Nema okvira */
+            border: none;
             color: #ffffff;
             padding: 10px 0;
             font-family: 'Barlow Condensed', sans-serif;
@@ -129,12 +132,12 @@
             color: rgba(255, 255, 255, 0.3);
         }
 
-        /* DUGME PLAY - Sada je samo reč */
+        /* DUGME PLAY (Samo reč) */
         #pusti-dugme {
             background-color: transparent;
             color: #888888;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 0 10px 20px;
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 18px;
             font-weight: 600;
@@ -148,7 +151,7 @@
             color: #ffffff;
         }
 
-        /* Prilagođavanje za mobilne telefone */
+        /* PRILAGOĐAVANJE ZA MOBILNE */
         @media (max-width: 600px) {
             .zaglavlje {
                 gap: 15px;
@@ -223,7 +226,7 @@
                         allowfullscreen>
                     </iframe>
                 `;
-                inputLink.value = ""; // Čistimo polje nakon puštanja
+                inputLink.value = ""; 
             } else {
                 alert("Link nije prepoznat. Molim te zalepi ispravan YouTube link.");
             }
