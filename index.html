@@ -34,7 +34,7 @@
             align-items: center;
             width: 100%;
             padding-top: 30px;
-            border-bottom: 2px solid #ffffff; /* PRVA LINIJA */
+            border-bottom: 2px solid #ffffff;
         }
 
         /* NASLOV */
@@ -59,21 +59,24 @@
 
         .dugmad-kontejner a {
             display: inline-block;
-            color: #ffffff;
+            color: #ffffff; /* Uvek bela */
             text-decoration: none;
             font-size: 15px;
             font-weight: 400;
             letter-spacing: 2px;
-            transition: opacity 0.3s ease;
             background-color: transparent;
             padding: 5px 0;
             position: relative;
+            /* Uklonjen transition za boju, jer se boja ne menja */
         }
 
-        .dugmad-kontejner a:hover, .dugmad-kontejner a:active {
-            opacity: 0.6; 
+        /* Uklonjen efekat bledjenja na hover */
+        .dugmad-kontejner a:hover, 
+        .dugmad-kontejner a:active {
+            color: #ffffff; 
         }
 
+        /* Bela linija ispod reči */
         .dugmad-kontejner a::after {
             content: '';
             position: absolute;
@@ -85,6 +88,7 @@
             transition: width 0.3s ease;
         }
 
+        /* Linija se širi na hover */
         .dugmad-kontejner a:hover::after {
             width: 100%;
         }
@@ -186,11 +190,11 @@
         /* --- DRUŠTVENE MREŽE U DESNOM UGLU ISPOD LINIJE --- */
         .drustvene-mreze {
             display: flex;
-            justify-content: flex-end; /* Poravnato udesno */
+            justify-content: flex-end;
             align-items: center;
             gap: 20px;
             width: 100%;
-            padding: 15px 40px; /* Malo veći razmak sa strane */
+            padding: 15px 40px;
             background-color: #000000;
         }
 
@@ -234,7 +238,7 @@
                 width: 100%;
             }
             .drustvene-mreze {
-                justify-content: center; /* Na telefonu centriramo */
+                justify-content: center;
                 padding: 15px 0;
                 gap: 25px;
             }
