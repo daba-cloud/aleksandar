@@ -30,50 +30,51 @@
         /* GLAVNI ZAGLAVLJE */
         .zaglavlje {
             display: flex;
-            flex-direction: column; /* Redja elemente jedan ispod drugog */
-            align-items: center; /* Centrira sve po sredini */
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            padding-top: 30px; /* Razmak od vrha ekrana */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* TANKA LINIJA ISPOD */
+            padding-top: 30px;
+            /* BELA I MALO DEBLJA LINIJA */
+            border-bottom: 2px solid #ffffff; 
         }
 
-        /* NASLOV (Gornji red) */
+        /* NASLOV */
         .ime-monaha {
             font-size: 42px;
             font-weight: 600;
-            letter-spacing: 12px; /* Veći razmak između slova */
+            letter-spacing: 12px;
             color: #ffffff;
-            margin: 0 0 25px 0; /* Razmak ispod naslova do menija */
-            padding-left: 12px; /* Centriranje zbog letter-spacing */
+            margin: 0 0 25px 0;
+            padding-left: 12px;
         }
 
-        /* KONTEJNER ZA NAVIGACIJU (Donji red) */
+        /* KONTEJNER ZA NAVIGACIJU */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center; /* Centrirano */
-            gap: 30px; /* Razmak između reči */
-            padding-bottom: 20px; /* Razmak od reči do donje linije */
+            justify-content: center;
+            gap: 30px;
+            padding-bottom: 20px;
         }
 
-        /* STIL ZA SVE LINKOVE U MENIJU */
+        /* STIL ZA SVE LINKOVE U MENIJU - SADA SU BELI */
         .dugmad-kontejner a {
             display: inline-block;
-            color: #888888;
+            color: #ffffff; /* BELA BOJA */
             text-decoration: none;
             font-size: 15px;
             font-weight: 400;
             letter-spacing: 2px;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease; /* Umesto boje, menjamo providnost */
             background-color: transparent;
             padding: 5px 0;
             position: relative;
         }
 
-        /* Efekat na hover */
+        /* Efekat na hover - malo se zatamne ili postanu providni */
         .dugmad-kontejner a:hover, .dugmad-kontejner a:active {
-            color: #ffffff;
+            opacity: 0.6; 
         }
 
         /* Bela linija ispod reči na hover */
@@ -92,7 +93,6 @@
             width: 100%;
         }
 
-        /* Ostatak stranice (ispod zaglavlja) ostaje prazan */
         .prazan-prostor {
             flex: 1;
         }
@@ -116,12 +116,9 @@
 </head>
 <body>
 
-    <!-- Zaglavlje sa linijom ispod -->
     <div class="zaglavlje">
-        <!-- Naslov u prvom redu -->
         <h1 class="ime-monaha">Aleksandar</h1>
         
-        <!-- Meni u drugom redu -->
         <div class="dugmad-kontejner">
             <a href="ulaz.html">Portal</a>
             <a href="video.html">YouTube</a>
@@ -134,7 +131,6 @@
         </div>
     </div>
 
-    <!-- Ostatak ekrana je prazan (crn) -->
     <div class="prazan-prostor"></div>
 
 </body>
