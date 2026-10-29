@@ -23,53 +23,9 @@
             width: 100%;
             color: #ffffff;
             font-family: 'Barlow Condensed', sans-serif;
-            text-transform: uppercase;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-        }
-
-        /* ZAGLAVLJE (Navigacija - isto kao na indexu) */
-        .zaglavlje {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: #000000;
-            z-index: 10;
-            gap: 40px;
-            height: 70px;
-        }
-
-        .nav-dugme {
-            color: #888888;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            transition: color 0.3s ease;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-dugme:hover, .nav-dugme:active {
-            color: #ffffff;
-        }
-
-        .nav-dugme::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1.5px;
-            bottom: -3px;
-            left: 0;
-            background-color: #ffffff;
-            transition: width 0.3s ease;
-        }
-
-        .nav-dugme:hover::after {
-            width: 100%;
         }
 
         /* GLAVNI KONTEJNER */
@@ -78,24 +34,25 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            justify-content: flex-start; /* Poravnava sadržaj na vrh */
+            padding: 20px; /* Mali razmak od ivica prozora */
             gap: 20px;
-            overflow-y: auto; /* Dozvoljava skrol ako je potrebno */
         }
 
-        /* OKVIR ZA PLEJER */
+        /* OKVIR ZA PLEJER - Sada se prilagođava prozoru */
         .plejer-okvir {
             width: 100%;
-            max-width: 900px;
-            aspect-ratio: 16 / 9;
-            background-color: #111;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            height: 100%; /* Zauzima svu preostalu visinu */
+            max-width: 1200px; /* Maksimalna širina da ne bude preveliko na ogromnim ekranima */
+            max-height: 80vh; /* Maksimalna visina da uvek ostane mesta za unos ispod */
+            
+            background-color: #000; /* Crna pozadina umesto sive */
+            /* border: 1px solid rgba(255, 255, 255, 0.15); <- OBRISANA GORNJA CRTA */
             border-radius: 4px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
         }
 
         .plejer-okvir iframe {
@@ -104,16 +61,16 @@
             border: none;
         }
 
-        /* DISKRETAN PROSTOR ZA UNOS (Samo donja linija) */
+        /* DISKRETAN PROSTOR ZA UNOS */
         .unos-linka {
             display: flex;
             align-items: center;
             width: 100%;
-            max-width: 900px;
-            margin-top: 10px;
+            max-width: 800px; /* Uže polje za unos */
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             padding-bottom: 5px;
-            flex-shrink: 0;
+            margin-top: auto; /* Gura unos na dno ako ima mesta */
+            margin-bottom: 20px;
         }
 
         #link-input {
@@ -125,11 +82,16 @@
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 18px;
             outline: none;
-            letter-spacing: 1px;
+            text-transform: lowercase; /* Tekst malim slovima */
+            letter-spacing: 2px; /* Veći razmak između slova */
         }
 
+        /* Placeholder stil */
         #link-input::placeholder {
             color: rgba(255, 255, 255, 0.3);
+            text-transform: lowercase; /* Placeholder malim slovima */
+            letter-spacing: 2px; /* Razmak između slova */
+            font-weight: 300;
         }
 
         /* DUGME PLAY (Samo reč) */
@@ -151,40 +113,28 @@
             color: #ffffff;
         }
 
-        /* PRILAGOĐAVANJE ZA MOBILNE */
+        /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
-            .zaglavlje {
-                gap: 15px;
-                padding: 15px;
-                height: 60px;
-            }
-            .nav-dugme {
-                font-size: 12px;
-                letter-spacing: 2px;
-            }
             .video-kontejner {
-                padding: 20px 15px;
+                padding: 10px;
+                gap: 10px;
+            }
+            .unos-linka {
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="zaglavlje">
-        <a href="index.html" class="nav-dugme">Home</a>
-        <a href="player.html" class="nav-dugme">Player</a>
-        <a href="chat.html" class="nav-dugme">Chat</a>
-        <a href="tekst.html" class="nav-dugme">Notes</a>
-        <a href="audio.html" class="nav-dugme">Audio</a>
-    </div>
-
     <div class="video-kontejner">
-        <!-- Prazan okvir za YouTube plejer -->
+        <!-- Plejer koji se prilagođava veličini prozora -->
         <div class="plejer-okvir" id="plejer"></div>
 
-        <!-- Diskretan unos linka ispod videa -->
+        <!-- Diskretan unos linka -->
         <div class="unos-linka">
-            <input type="text" id="link-input" placeholder="Zalepi YouTube link..." autocomplete="off">
+            <!-- Tekst je sada na engleskom, malim slovima i sa većim razmakom -->
+            <input type="text" id="link-input" placeholder="paste youtube link" autocomplete="off">
             <button id="pusti-dugme">Play</button>
         </div>
     </div>
@@ -198,7 +148,7 @@
             const link = inputLink.value.trim();
             
             if (link === "") {
-                alert("Zalepi neki YouTube link prvo!");
+                alert("Paste a YouTube link first!");
                 return;
             }
 
@@ -228,15 +178,19 @@
                 `;
                 inputLink.value = ""; 
             } else {
-                alert("Link nije prepoznat. Molim te zalepi ispravan YouTube link.");
+                alert("Link not recognized. Please paste a valid YouTube link.");
             }
         }
 
-        dugmePusti.addEventListener('click', pustiVideo);
+        dugmePusti.addEventListener('click', () => {
+            // Čistimo plejer pre nego što pustimo novi video
+            plejer.innerHTML = ''; 
+            pustiVideo();
+        });
 
         inputLink.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                pustiVideo();
+                dugmePusti.click(); // Klik na dugme da bi se pokrenela ista logika
             }
         });
     </script>
