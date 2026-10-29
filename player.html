@@ -39,7 +39,7 @@
             gap: 20px;
         }
 
-        /* OKVIR ZA PLEJER - Isti diskretni sjaj */
+        /* OKVIR ZA PLEJER */
         .plejer-okvir {
             width: 100%;
             height: 100%;
@@ -55,6 +55,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative; /* Ovo je ključno za pozicioniranje teksta */
         }
 
         /* Sam video element */
@@ -65,17 +66,16 @@
             outline: none;
         }
 
-        /* DISKRETAN PROSTOR ZA IZBOR FAJLA */
+        /* Tekst za izbor fajla - sada je unutar okvira, na dnu desno */
         .unos-fajla {
+            position: absolute; /* Apsolutno pozicioniran unutar okvira */
+            bottom: 15px; /* Odmaknut od donje ivice */
+            right: 20px; /* Odmaknut od desne ivice */
             display: flex;
             align-items: center;
-            justify-content: flex-end; /* Poravnava sadržaj na desnu stranu */
-            width: 100%;
-            max-width: 800px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 10; /* Iznad videa */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Tankа linija ispod teksta */
             padding-bottom: 5px;
-            margin-top: auto;
-            margin-bottom: 20px;
         }
 
         /* Sakrivamo ružno default dugme za izbor fajla */
@@ -83,20 +83,20 @@
             display: none;
         }
 
-        /* Stiliziramo labelu da izgleda kao običan tekst (sada je na desnoj strani) */
+        /* Stiliziramo labelu */
         .label-fajl {
             background: transparent;
             border: none;
-            color: #888888;
-            padding: 10px 0;
+            color: rgba(255, 255, 255, 0.5); /* Malo providnije da ne smeta videu */
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             outline: none;
             text-transform: lowercase;
             letter-spacing: 2px;
             cursor: pointer;
             transition: color 0.3s ease;
-            text-align: right; /* Tekst je poravnat udesno */
+            text-align: right;
+            white-space: nowrap; /* Sprečava prelamanje teksta u više redova */
         }
 
         .label-fajl:hover, .label-fajl:active {
@@ -110,7 +110,11 @@
                 gap: 10px;
             }
             .unos-fajla {
-                margin-bottom: 10px;
+                bottom: 10px;
+                right: 10px;
+            }
+            .label-fajl {
+                font-size: 14px;
             }
         }
     </style>
@@ -118,17 +122,15 @@
 <body>
 
     <div class="video-kontejner">
-        <!-- Prazan plejer sa diskretnim sjajem -->
+        <!-- Plejer sa ugrađenim tekstom za izbor fajla -->
         <div class="plejer-okvir" id="plejer">
             <video id="lokalni-video" controls></video>
-        </div>
-
-        <!-- Diskretan prostor za izbor fajla -->
-        <div class="unos-fajla">
-            <input type="file" id="izbor-fajla" accept="video/*">
             
-            <!-- Tekst je sada sa desne strane i cela linija je klikabilna -->
-            <label for="izbor-fajla" class="label-fajl">select video from device</label>
+            <!-- Tekst je sada unutar plejera, na dnu desno -->
+            <div class="unos-fajla">
+                <input type="file" id="izbor-fajla" accept="video/*">
+                <label for="izbor-fajla" class="label-fajl">select video from device</label>
+            </div>
         </div>
     </div>
 
