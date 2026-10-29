@@ -27,25 +27,25 @@
             overflow: hidden;
         }
 
-        .stranica {
+        /* GLAVNI ZAGLAVLJE (Drži naslov i meni u istom redu) */
+        .zaglavlje {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 30px;
-            height: 100%;
+            align-items: center; /* Vertikalno centriranje */
+            justify-content: space-between; /* Naslov levo, meni desno */
             width: 100%;
-            text-align: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* TANKA LINIJA ISPOD */
+            height: 80px; /* Fiksna visina zaglavlja */
         }
 
         /* NASLOV */
         .ime-monaha {
-            font-size: 38px;
+            font-size: 32px;
             font-weight: 600;
-            letter-spacing: 18px;
+            letter-spacing: 6px;
             color: #ffffff;
-            margin-bottom: 25px;
-            padding-left: 18px;
+            margin: 0;
+            padding-left: 0;
         }
 
         /* KONTEJNER ZA NAVIGACIJU */
@@ -53,20 +53,18 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            width: 100%;
-            padding: 0 20px;
+            justify-content: flex-end; /* Poravnato udesno */
+            gap: 30px; /* Razmak između reči */
         }
 
-        /* STIL ZA SVE LINKOVE U MENIJU (Bez klase dugme-monah) */
+        /* STIL ZA SVE LINKOVE U MENIJU */
         .dugmad-kontejner a {
             display: inline-block;
-            color: #888888;
+            color: #888888; /* Siva boja */
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px; /* Malo manji font za elegantniji izgled */
             font-weight: 400;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             transition: color 0.3s ease;
             background-color: transparent;
             padding: 5px 0;
@@ -94,25 +92,33 @@
             width: 100%;
         }
 
+        /* Ostatak stranice (ispod zaglavlja) ostaje prazan */
+        .prazan-prostor {
+            flex: 1;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="stranica">
+    <!-- Zaglavlje sa linijom ispod -->
+    <div class="zaglavlje">
         <h1 class="ime-monaha">Aleksandar</h1>
         
-        <!-- Čistiji meni bez nepotrebnih klasa -->
         <div class="dugmad-kontejner">
             <a href="ulaz.html">Portal</a>
             <a href="video.html">YouTube</a>
             <a href="player.html">Video</a>
-            <a href="chat.html">Chat</a> <!-- OVDE JE LINK ZA CHAT -->
+            <a href="chat.html">Chat</a>
             <a href="#">Blog</a>
             <a href="#">News</a>
             <a href="tekst.html">Notes</a>
             <a href="audio.html">Audio</a>
         </div>
     </div>
+
+    <!-- Ostatak ekrana je prazan (crn) -->
+    <div class="prazan-prostor"></div>
 
 </body>
 </html>
