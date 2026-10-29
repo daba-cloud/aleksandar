@@ -29,13 +29,14 @@
 
         /* GLAVNI ZAGLAVLJE */
         .zaglavlje {
-            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             padding-top: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* PRVA LINIJA - SADA ISTA KAO DONJA */
+            
+            /* PRVA LINIJA - SADA JE ČISTO BELA I DEBLJA (2px) */
+            border-bottom: 2px solid #ffffff; 
         }
 
         /* NASLOV */
@@ -46,33 +47,6 @@
             color: #ffffff;
             margin: 0 0 25px 0;
             padding-left: 12px;
-        }
-
-        /* IKONICE U GORNJEM DESNOM UGLU */
-        .gornji-ikonice {
-            position: absolute;
-            top: 35px;
-            right: 40px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .gornji-ikonice a {
-            color: #ffffff;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gornji-ikonice a:hover {
-            opacity: 0.5;
-        }
-
-        .gornji-ikonice svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
         }
 
         /* GLAVNI MENI */
@@ -122,8 +96,6 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center; 
-            padding: 0 10%; 
             width: 100%;
         }
 
@@ -133,7 +105,7 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            margin-bottom: 60px; 
+            padding: 60px 10%; 
         }
 
         .kolona {
@@ -154,7 +126,7 @@
             font-weight: 300;
             letter-spacing: 1px;
             line-height: 1.5;
-            color: #cccccc;
+            color: #ffffff; /* Beli tekst */
             text-transform: none; 
         }
 
@@ -206,11 +178,40 @@
             opacity: 0.5;
         }
 
-        /* --- DRUGA TANKA LINIJA NA DNU --- */
-        .donja-linija {
+        /* --- DRUGA LINIJA (SADA ČISTO BELA I DEBLJA) --- */
+        .druga-linija {
             width: 100%;
-            height: 1px;
-            background-color: rgba(255, 255, 255, 0.3); /* ISTA BOJA I DEBLJINA KAO GORNJA */
+            height: 2px; /* Ista debljina kao prva linija */
+            background-color: #ffffff; /* Čisto bela boja */
+        }
+
+        /* --- DRUŠTVENE MREŽE ISPOD DRUGE LINIJE --- */
+        .drustvene-mreze {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+            padding: 20px 0;
+            background-color: #000000;
+        }
+
+        .drustvene-mreze a {
+            color: #ffffff;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .drustvene-mreze a:hover {
+            opacity: 0.5;
+        }
+
+        .drustvene-mreze svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
 
         /* Prilagođavanje za mobilne telefone */
@@ -226,21 +227,21 @@
             .dugmad-kontejner a {
                 font-size: 13px;
             }
-            .gornji-ikonice {
-                top: 25px;
-                right: 15px;
-                gap: 15px;
-            }
-            .gornji-ikonice svg {
-                width: 18px;
-                height: 18px;
-            }
             .kolone {
                 flex-direction: column;
                 gap: 40px;
+                padding: 30px 5%; 
             }
             .kolona {
                 width: 100%;
+            }
+            .drustvene-mreze {
+                gap: 20px;
+                padding: 15px 0;
+            }
+            .drustvene-mreze svg {
+                width: 18px;
+                height: 18px;
             }
         }
 
@@ -249,8 +250,50 @@
 <body>
 
     <div class="zaglavlje">
-        <!-- IKONICE U GORNJEM DESNOM UGLU -->
-        <div class="gornji-ikonice">
+        <!-- NASLOV -->
+        <h1 class="ime-monaha">Aleksandar</h1>
+        
+        <!-- GLAVNI MENI -->
+        <div class="dugmad-kontejner">
+            <a href="ulaz.html">Portal</a>
+            <a href="video.html">YouTube</a>
+            <a href="player.html">Video</a>
+            <a href="chat.html">Chat</a>
+            <a href="#">Blog</a>
+            <a href="#">News</a>
+            <a href="tekst.html">Notes</a>
+            <a href="audio.html">Audio</a>
+        </div>
+    </div>
+
+    <!-- DONJI DEO -->
+    <div class="donji-deo">
+        
+        <!-- Kontakt i Email -->
+        <div class="kolone">
+            <div class="kolona">
+                <h3>CONTACT</h3>
+                <p>
+                    Ako imaš bilo kakvo pitanje ili predlog, slobodno mi piši na <a href="mailto:aleksandar@email.com">aleksandar@email.com</a>. 
+                    Uvek sam dostupan za saradnju i razgovor.
+                </p>
+            </div>
+
+            <div class="kolona">
+                <h3>NEWSLETTER</h3>
+                <p>Prijavi se da budeš u toku sa najnovijim sadržajem.</p>
+                <div class="email-unos">
+                    <input type="email" placeholder="enter your email address" aria-label="Email">
+                    <button type="button">OK</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Druga linija (od ivice do ivice) -->
+        <div class="druga-linija"></div>
+
+        <!-- Društvene mreže ispod druge linije -->
+        <div class="drustvene-mreze">
             <a href="#" target="_blank" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
@@ -270,47 +313,6 @@
             </a>
         </div>
 
-        <!-- NASLOV -->
-        <h1 class="ime-monaha">Aleksandar</h1>
-        
-        <!-- GLAVNI MENI -->
-        <div class="dugmad-kontejner">
-            <a href="ulaz.html">Portal</a>
-            <a href="video.html">YouTube</a>
-            <a href="player.html">Video</a>
-            <a href="chat.html">Chat</a>
-            <a href="#">Blog</a>
-            <a href="#">News</a>
-            <a href="tekst.html">Notes</a>
-            <a href="audio.html">Audio</a>
-        </div>
-    </div>
-
-    <!-- DONJI DEO: Kontakt i Email -->
-    <div class="donji-deo">
-        <div class="kolone">
-            <!-- Leva kolona: Kontakt -->
-            <div class="kolona">
-                <h3>CONTACT</h3>
-                <p>
-                    Ako imaš bilo kakvo pitanje ili predlog, slobodno mi piši na <a href="mailto:aleksandar@email.com">aleksandar@email.com</a>. 
-                    Uvek sam dostupan za saradnju i razgovor.
-                </p>
-            </div>
-
-            <!-- Desna kolona: Newsletter (Email) -->
-            <div class="kolona">
-                <h3>NEWSLETTER</h3>
-                <p>Prijavi se da budeš u toku sa najnovijim sadržajem.</p>
-                <div class="email-unos">
-                    <input type="email" placeholder="enter your email address" aria-label="Email">
-                    <button type="button">OK</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Donja tanka linija -->
-        <div class="donja-linija"></div>
     </div>
 
 </body>
