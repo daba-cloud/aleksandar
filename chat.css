@@ -9,7 +9,8 @@ html, body {
     height: 100%;
     width: 100%;
     color: #ffffff;
-    font-family: 'EB Garamond', serif;
+    font-family: 'Barlow Condensed', sans-serif; /* NOVI FONT */
+    text-transform: uppercase; /* SVA SLOVA VELIKA */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -18,51 +19,44 @@ html, body {
 /* Zaglavlje */
 .zaglavlje {
     text-align: center;
-    padding: 15px 20px; /* Malo smanjen padding da se poravna sa novom visinom dugmadi */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background-color: #000000;
     z-index: 10;
     position: relative;
-    height: 60px; /* Fiksna visina zaglavlja */
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .zaglavlje h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 22px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    letter-spacing: 8px; /* Veći razmak za elegantniji izgled */
     color: #ffffff;
     margin: 0;
 }
 
-/* ZAJEDNIČKI STIL ZA HOME I DELETE DUGMAD */
+/* ZAJEDNIČKI STIL ZA REČI-DUGMAD (HOME i DELETE) */
 .nav-home, #obrisi-sve {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* Savršeno vertikalno centriranje */
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 36px; /* Visina identična visini polja za unos */
+    transform: translateY(-50%);
     
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #ffffff !important;
-    text-decoration: none !important;
+    border: none; /* NEMA OKVIRA */
+    color: #888888; /* Siva boja dok nije aktivno */
     
-    font-family: 'Cinzel', serif;
-    font-size: 12px; /* Ista veličina slova kao SEND */
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; /* Manji font za diskretnost */
+    letter-spacing: 3px;
     
-    padding: 0 15px;
-    border-radius: 4px;
+    padding: 5px 0;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 /* Specifično pozicioniranje HOME (levo) */
@@ -75,17 +69,31 @@ html, body {
     right: 20px;
 }
 
-/* Efekat na klik/hover za oba dugmeta */
+/* Efekat na hover za oba dugmeta */
 .nav-home:hover, .nav-home:active,
 #obrisi-sve:hover, #obrisi-sve:active {
+    color: #ffffff;
+}
+
+/* Bela linija ispod reči na hover (kao na indexu) */
+.nav-home::after, #obrisi-sve::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    bottom: -3px;
+    left: 0;
     background-color: #ffffff;
-    color: #000000 !important;
-    border-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.nav-home:hover::after, #obrisi-sve:hover::after {
+    width: 100%;
 }
 
 /* Sprečavamo ljubičastu boju za posećene linkove */
 .nav-home:visited {
-    color: #ffffff !important;
+    color: #888888;
 }
 
 /* Prostor za poruke */
@@ -102,9 +110,9 @@ html, body {
 .poruka {
     max-width: 90%;
     padding: 5px 10px;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.6;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     word-wrap: break-word;
     text-align: center;
     align-self: center;
@@ -122,81 +130,120 @@ html, body {
 
 /* STIL IMENA */
 .ime-posiljaoca {
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     display: block;
-    text-transform: uppercase;
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 4px; /* Veći razmak između slova imena */
 }
 
 /* Donji deo za unos */
 .unos {
     display: flex;
-    padding: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     background-color: #000000;
     align-items: center;
-    gap: 8px;
+    gap: 15px; /* Veći razmak između polja */
 }
 
 /* Polje za ime */
 #ime {
-    width: 55px;
-    height: 36px; /* Smanjeno sa 46px na 36px da bude u ravni sa novim dugmadima */
+    width: 60px;
+    height: 40px;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none; /* NEMA OKVIRA */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Samo donja linija */
     color: #ffffff;
     padding: 0 5px;
-    font-family: 'EB Garamond', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 16px;
     outline: none;
     text-align: center;
-    border-radius: 4px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 /* Polje za tekst poruke */
 #tekst-poruke {
     flex: 1;
-    height: 36px; /* Smanjeno sa 46px na 36px */
+    height: 40px;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none; /* NEMA OKVIRA */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Samo donja linija */
     color: #ffffff;
     padding: 0 15px;
-    font-family: 'EB Garamond', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 18px;
     outline: none;
     text-align: center;
-    border-radius: 4px;
+    letter-spacing: 1px;
 }
 
 #tekst-poruke::placeholder, #ime::placeholder {
     color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Dugme SEND */
+/* Dugme SEND - Sada je samo reč */
 #posalji {
     background-color: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    height: 36px; /* Ista visina kao HOME i DELETE */
-    padding: 0 15px;
-    font-family: 'Cinzel', serif;
-    font-size: 12px; /* Ista veličina slova kao HOME i DELETE */
-    letter-spacing: 2px;
-    text-transform: uppercase; /* Osigurava velika slova */
+    color: #888888;
+    border: none; /* NEMA OKVIRA */
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 4px;
     cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 4px;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    padding: 5px 0;
+    position: relative;
 }
 
-#posalji:active, #posalji:hover {
+#posalji:hover, #posalji:active {
+    color: #ffffff;
+}
+
+/* Bela linija ispod SEND na hover */
+#posalji::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    bottom: -3px;
+    left: 0;
     background-color: #ffffff;
-    color: #000000;
+    transition: width 0.3s ease;
+}
+
+#posalji:hover::after {
+    width: 100%;
+}
+
+/* Prilagođavanje za mobilne telefone */
+@media (max-width: 600px) {
+    .zaglavlje {
+        padding: 15px;
+        height: 60px;
+    }
+    .zaglavlje h1 {
+        font-size: 20px;
+    }
+    .nav-home, #obrisi-sve {
+        font-size: 12px;
+    }
+    .unos {
+        padding: 15px;
+        gap: 10px;
+    }
+    #ime {
+        width: 50px;
+    }
+    #posalji {
+        font-size: 14px;
+    }
 }
