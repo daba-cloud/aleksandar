@@ -39,23 +39,24 @@
             gap: 20px;
         }
 
-        /* OKVIR ZA PLEJER */
+        /* OKVIR ZA PLEJER - BEZ LINIJA I BEZ SJAJA */
         .plejer-okvir {
             width: 100%;
             height: 100%;
             max-width: 1200px;
             max-height: 80vh;
-            background-color: #050505; 
+            background-color: #000000; /* Potpuno crna, stapa se sa pozadinom */
             
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.03), inset 0 0 20px rgba(255, 255, 255, 0.01);
+            /* OBRISANE LINIJE I SJAJ */
+            border: none;
+            box-shadow: none;
             
-            border-radius: 4px;
+            border-radius: 0; /* Nema zaobljenih ivica */
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative; /* Ovo je ključno za pozicioniranje teksta */
+            position: relative;
         }
 
         /* Sam video element */
@@ -66,16 +67,18 @@
             outline: none;
         }
 
-        /* Tekst za izbor fajla - sada je unutar okvira, na dnu desno */
+        /* Tekst za izbor fajla */
         .unos-fajla {
-            position: absolute; /* Apsolutno pozicioniran unutar okvira */
-            bottom: 15px; /* Odmaknut od donje ivice */
-            right: 20px; /* Odmaknut od desne ivice */
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
             display: flex;
             align-items: center;
-            z-index: 10; /* Iznad videa */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Tankа linija ispod teksta */
-            padding-bottom: 5px;
+            z-index: 10;
+            
+            /* OBRISANA DONJA LINIJA */
+            border-bottom: none; 
+            padding-bottom: 0;
         }
 
         /* Sakrivamo ružno default dugme za izbor fajla */
@@ -87,16 +90,17 @@
         .label-fajl {
             background: transparent;
             border: none;
-            color: rgba(255, 255, 255, 0.5); /* Malo providnije da ne smeta videu */
+            color: rgba(255, 255, 255, 0.4); /* Još providnije */
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 16px;
+            font-size: 14px; /* Smanjeno sa 16px */
             outline: none;
             text-transform: lowercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px; /* POVEĆAN RAZMAK IZMEĐU SLOVA */
+            word-spacing: 6px; /* DODAT RAZMAK IZMEĐU REČI */
             cursor: pointer;
             transition: color 0.3s ease;
             text-align: right;
-            white-space: nowrap; /* Sprečava prelamanje teksta u više redova */
+            white-space: nowrap;
         }
 
         .label-fajl:hover, .label-fajl:active {
@@ -114,7 +118,9 @@
                 right: 10px;
             }
             .label-fajl {
-                font-size: 14px;
+                font-size: 12px;
+                letter-spacing: 3px;
+                word-spacing: 4px;
             }
         }
     </style>
@@ -122,11 +128,11 @@
 <body>
 
     <div class="video-kontejner">
-        <!-- Plejer sa ugrađenim tekstom za izbor fajla -->
+        <!-- Plejer bez ikakvih linija -->
         <div class="plejer-okvir" id="plejer">
             <video id="lokalni-video" controls></video>
             
-            <!-- Tekst je sada unutar plejera, na dnu desno -->
+            <!-- Tekst za izbor fajla bez linije ispod -->
             <div class="unos-fajla">
                 <input type="file" id="izbor-fajla" accept="video/*">
                 <label for="izbor-fajla" class="label-fajl">select video from device</label>
@@ -138,7 +144,6 @@
         const izborFajla = document.getElementById('izbor-fajla');
         const lokalniVideo = document.getElementById('lokalni-video');
 
-        // Kada korisnik izabere fajl, učitavamo ga u video plejer
         izborFajla.addEventListener('change', function(event) {
             const fajl = event.target.files[0]; 
             
