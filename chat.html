@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aleksandar — Chat</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+    <div class="zaglavlje">
+        <a href="index.html" class="nav-home">HOME</a>
+        <h1>Chat</h1>
+        <button id="obrisi-sve" title="Obriši sve poruke">DELETE</button>
+    </div>
+
+    <div id="poruke"></div>
+
+    <div class="unos">
+        <input type="text" id="ime" placeholder="Ime..." maxlength="15" autocomplete="off">
+        <input type="text" id="tekst-poruke" placeholder="Napiši poruku..." maxlength="200" autocomplete="off">
+        <!-- IZMENJENO: Umesto Pošalji sada piše SEND -->
+        <button id="posalji">SEND</button>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+        import { getDatabase, ref, push, onValue, serverTimestamp, remove } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
+
+        const firebaseConfig = {
+            databaseURL: "https://aleksandar-d48ba-default-rtdb.firebaseio.com"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const porukeRef = ref(db, 'soba-aleksandar');
+
+        const dugme = document.getElementById('posalji');
+        const dugmeObrisiSve = document.getElementById('obrisi-sve');
+        const inputIme = document.getElementById('ime');
+        const inputPoruka = document.getElementById('tekst-poruke');
+        const kontejnerPoruka = document.getElementById('poruke');
+
+        const sacuvanoIme = localStorage.getItem('mojeIme');
+        if (sacuvanoIme) {
+            inputIme.value = sacuvanoIme;
+        }
+
+        inputIme.addEventListener('input', () => {
+            localStorage.setItem('mojeIme', inputIme.value.trim());
+        });
+
+        dugme.addEventListener('click', () => {
+            const ime = inputIme.value.trim();
+            const tekst = inputPoruka.value.trim();
+            
+            if (ime === "") {
+                alert("Molim te prvo upiši svoje ime!");
+                inputIme.focus();
+                return;
+            }
+
+            if (tekst === "") return;
+
+            push(porukeRef, {
+                ime: ime,
+                tekst: tekst,
+                vreme: serverTimestamp()
+            });
+
+            inputPoruka.value = ""; 
+        });
+
+        inputPoruka.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') dugme.click();
+        });
+
+        onValue(porukeRef, (snapshot) => {
+            kontejnerPoruka.innerHTML = ""; 
+
+            snapshot.forEach((childSnapshot) => {
+                const podaci = childSnapshot.val();
+                const kljucPoruke = childSnapshot.key;
+                
+                const div = document.createElement('div');
+                div.className = 'poruka druga'; 
+                div.setAttribute('data-id', kljucPoruke);
+
+                div.innerHTML = `<span class="ime-posiljaoca">${podaci.ime}</span>${podaci.tekst}`;
+                kontejnerPoruka.appendChild(div);
+            });
+
+            kontejnerPoruka.scrollTop = kontejnerPoruka.scrollHeight;
+        });
+
+        kontejnerPoruka.addEventListener('click', (e) => {
+            const porukaDiv = e.target.closest('.poruka');
+            if (porukaDiv) {
+                const idPoruke = porukaDiv.getAttribute('data-id');
+                if (idPoruke) {
+                    if (confirm("Da li želiš da obrišeš ovu poruku?")) {
+                        const porukaRef = ref(db, `soba-aleksandar/${idPoruke}`);
+                        remove(porukaRef)
+                            .catch((error) => console.error("Greška: ", error));
+                    }
+                }
+            }
+        });
+
+        dugmeObrisiSve.addEventListener('click', () => {
+            if (confirm("Da li si SIGURAN da želiš da obrišeš SVE poruke?")) {
+                remove(porukeRef)
+                    .catch((error) => {
+                        console.error("Greška: ", error);
+                        alert("Došlo je do greške.");
+                    });
+            }
+        });
+    </script>
+
+</body>
+</html>
