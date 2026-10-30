@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Aleksandar</title>
     
-    <!-- Barlow Condensed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -30,25 +29,28 @@
             flex-direction: column;
         }
 
-        /* --- GORNJI DEO (BEO POZADINA, CRNA SLOVA) --- */
+        /* --- GORNJI DEO (BEO, KAO PRADIN HEADER) --- */
         .gornji-deo {
             background-color: #ffffff;
             color: #000000;
             width: 100%;
-            padding: 25px 40px 0 40px;
+            height: 56px; /* Pradina visina zaglavlja */
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center; /* Centrira logo po sredini */
+            padding: 0 20px;
+            border-bottom: 1px solid #e0e0e0;
         }
 
-        /* NASLOV */
+        /* NASLOV KAO SVG/LOGO */
         .ime-monaha {
-            font-size: 36px;
+            font-size: 24px;
             font-weight: 600;
-            letter-spacing: 10px; 
-            color: #000000; /* Crna slova */
-            margin: 0 0 20px 0;
-            text-align: left;
+            letter-spacing: 8px; /* Veći razmak, kao Prada */
+            color: #000000;
+            margin: 0;
+            padding-left: 8px; /* Centriranje zbog letter-spacing */
+            text-align: center;
         }
 
         /* --- DONJI DEO (CRNA POZADINA) --- */
@@ -60,7 +62,6 @@
             flex-direction: column;
             width: 100%;
             position: relative;
-            border-top: 1px solid #000000; /* Linija između belog i crnog dela */
         }
 
         /* GLAVNI MENI */
@@ -72,12 +73,12 @@
             width: 100%;
             gap: 20px;
             padding: 15px 40px;
-            border-bottom: 1px solid #ffffff; /* Bela linija ispod menija */
+            border-bottom: 1px solid #ffffff;
         }
 
         .dugmad-kontejner a {
             display: inline-block;
-            color: #ffffff; /* Bela slova */
+            color: #ffffff;
             text-decoration: none;
             font-size: 13px;
             font-weight: 400;
@@ -231,7 +232,7 @@
             margin-bottom: 15px;
         }
 
-        .dinamicki-sadrzaj p {
+        .dinamički-sadrzaj p {
             font-size: 15px;
             line-height: 1.6;
             color: #cccccc;
@@ -292,8 +293,7 @@
 
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
-            .gornji-deo { padding: 20px 15px 0 15px; }
-            .ime-monaha { font-size: 28px; letter-spacing: 6px; margin-bottom: 15px; }
+            .ime-monaha { font-size: 20px; letter-spacing: 6px; }
             .dugmad-kontejner { gap: 15px; padding: 15px; }
             .dugmad-kontejner a { font-size: 11px; }
             .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
@@ -307,9 +307,9 @@
 </head>
 <body>
 
-    <!-- GORNJI DEO (BEO) -->
+    <!-- GORNJI DEO (BEO, KAO PRADIN HEADER) -->
     <div class="gornji-deo">
-        <h1 class="ime-monaha">Aleksandar Dabić</h1>
+        <h1 class="ime-monaha">Aleksandar</h1>
     </div>
 
     <!-- DONJI DEO (CRN) -->
