@@ -42,30 +42,25 @@
             border-bottom: 1px solid #ffffff; 
         }
 
-        /* NASLOV - ZBIJENA SLOVA */
+        /* NASLOV */
         .ime-monaha {
             font-size: 36px;
             font-weight: 600;
-            /* SMANJENO NA 2px DA SLOVA BUDU SKORO SPOJENA */
             letter-spacing: 2px; 
             color: #ffffff;
             margin: 0 0 10px 0; 
-            /* UKLONJEN PADDING LEFT */
             padding-left: 0; 
             text-align: center;
         }
 
-        /* GLAVNI MENI - SADA SE RASTEŽE OD 8% DO 92% */
+        /* GLAVNI MENI */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            /* SPACE-BETWEEN DA SE RAŠIRI OD IVICE DO IVICE */
             justify-content: space-between; 
             width: 100%;
-            /* ISTI PADDING KAO DONJI DEO (8%) */
             padding: 5px 8% 15px 8%; 
-            /* NEMA GAP-A, SPACE-BETWEEN SAM RASPOREĐUJE */
             gap: 0; 
         }
 
@@ -118,9 +113,11 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            /* PADDING JE 8% - ISTO KAO MENI */
             padding: 40px 8%;
-            margin-top: 60px;
+            margin-top: 40px;
+            /* DODATA BELA LINIJA ISPOD KONTAKTA */
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 40px; /* Razmak do linije */
         }
 
         .kolona {
@@ -250,7 +247,7 @@
             border: none;
         }
 
-        /* --- DRUGA LINIJA I DRUŠTVENE MREŽE --- */
+        /* --- SIVA LINIJA I DRUŠTVENE MREŽE --- */
         .druga-linija {
             width: 100%;
             height: 0.5px;
@@ -291,7 +288,7 @@
             .ime-monaha { font-size: 28px; letter-spacing: 1px; margin-bottom: 8px; }
             .dugmad-kontejner { gap: 15px; padding: 5px 5% 15px 5%; justify-content: center; }
             .dugmad-kontejner a { font-size: 10px; }
-            .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
+            .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 20px; padding-bottom: 20px; }
             .kolona { width: 100%; }
             .drustvene-mreze { justify-content: center; padding: 15px 0; gap: 25px; }
             .drustvene-mreze svg { width: 18px; height: 18px; }
@@ -324,6 +321,7 @@
     <!-- DONJI DEO (KONTAKT I DRUŠTVENE MREŽE) -->
     <div class="donji-deo">
         
+        <!-- Kontakt deo - sada ima BELU LINIJU ispod sebe -->
         <div class="pocetni-prikaz" id="pocetni-prikaz">
             <div class="kolona">
                 <h3>CONTACT</h3>
@@ -348,6 +346,7 @@
             <div id="sadrzaj-unutra"></div>
         </div>
 
+        <!-- SIVA LINIJA (koja ide od ivice do ivice) -->
         <div class="druga-linija"></div>
 
         <div class="drustvene-mreze">
