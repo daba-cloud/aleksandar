@@ -42,14 +42,16 @@
             border-bottom: 1px solid #ffffff; 
         }
 
-        /* NASLOV */
+        /* NASLOV - SMANJEN RAZMAK IZMEĐU SLOVA */
         .ime-monaha {
             font-size: 36px;
             font-weight: 600;
-            letter-spacing: 12px; 
+            /* SMANJENO SA 12px NA 5px */
+            letter-spacing: 5px; 
             color: #ffffff;
             margin: 0 0 10px 0; 
-            padding-left: 12px;
+            /* UKLONJEN PADDING LEFT */
+            padding-left: 0; 
             text-align: center;
         }
 
@@ -58,12 +60,9 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            /* SPACE-BETWEEN DA SE RAŠIRI OD IVICE DO IVICE */
             justify-content: space-between; 
             width: 100%;
-            /* ISTI PADDING KAO DONJI DEO (8%) */
             padding: 5px 8% 15px 8%; 
-            /* NEMA GAP-A, SPACE-BETWEEN SAM RASPOREĐUJE */
             gap: 0; 
         }
 
@@ -116,7 +115,6 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            /* PADDING JE 8% - ISTO KAO MENI */
             padding: 40px 8%;
             margin-top: 60px;
         }
@@ -286,7 +284,7 @@
 
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
-            .ime-monaha { font-size: 28px; letter-spacing: 8px; margin-bottom: 8px; }
+            .ime-monaha { font-size: 28px; letter-spacing: 3px; margin-bottom: 8px; }
             .dugmad-kontejner { gap: 15px; padding: 5px 5% 15px 5%; justify-content: center; }
             .dugmad-kontejner a { font-size: 10px; }
             .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
