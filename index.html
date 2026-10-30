@@ -63,24 +63,24 @@
             position: relative;
         }
 
-        /* GLAVNI MENI - GRUPISAN NA SREDINI KAO CHANEL */
+        /* GLAVNI MENI */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center; /* Vraćeno na centar */
+            justify-content: center;
             width: 100%;
             padding: 15px 40px;
             border-bottom: 1px solid #ffffff;
-            gap: 40px; /* Veći razmak između reči, kao na Chanelu */
+            gap: 40px;
         }
 
         .dugmad-kontejner a {
             display: inline-block;
             color: #ffffff;
             text-decoration: none;
-            font-size: 11px; /* Smanjeno sa 13px na 11px */
-            font-weight: 600; /* DODATO BOLD */
+            font-size: 11px;
+            font-weight: 600;
             letter-spacing: 2px;
             transition: opacity 0.3s ease;
             background-color: transparent;
@@ -125,7 +125,7 @@
             align-items: flex-start;
             width: 100%;
             padding: 40px 8%;
-            margin-top: 60px; 
+            margin-top: 60px; /* Ostaje isto, ne diramo gornji deo */
         }
 
         .kolona {
@@ -255,14 +255,14 @@
             border: none;
         }
 
-        /* --- DRUGA LINIJA --- */
+        /* --- DRUGA LINIJA I DRUŠTVENE MREŽE (GURANJE NA DNO) --- */
         .druga-linija {
             width: 100%;
             height: 1px;
             background-color: #ffffff;
+            margin-top: auto; /* OVO GURA LINIJU NA SAMO DNO */
         }
 
-        /* --- DRUŠTVENE MREŽE --- */
         .drustvene-mreze {
             display: flex;
             justify-content: flex-end;
@@ -299,8 +299,13 @@
                 gap: 15px; 
                 padding: 15px; 
             }
-            .dugmad-kontejner a { font-size: 10px; } /* Još manje na mobilnom */
-            .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
+            .dugmad-kontejner a { font-size: 10px; }
+            .pocetni-prikaz { 
+                flex-direction: column; 
+                gap: 40px; 
+                padding: 30px 5%; 
+                margin-top: 30px; 
+            }
             .kolona { width: 100%; }
             .drustvene-mreze { justify-content: center; padding: 15px 0; gap: 25px; }
             .drustvene-mreze svg { width: 18px; height: 18px; }
@@ -358,6 +363,7 @@
                 <div id="sadrzaj-unutra"></div>
             </div>
 
+            <!-- Ova linija i ikonice ispod nje su sada gurnute na samo dno -->
             <div class="druga-linija"></div>
 
             <div class="drustvene-mreze">
