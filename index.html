@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Aleksandar</title>
     
-    <!-- Barlow Condensed Font -->
+    <!-- Barlow Condensed (ostaje za neke delove ako želiš) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&display=swap" rel="stylesheet">
@@ -22,35 +22,36 @@
             height: 100%;
             width: 100%;
             color: #ffffff;
-            font-family: 'Barlow Condensed', sans-serif;
+            /* HELVETICA ZA CEO SAJT */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             text-transform: uppercase;
             overflow: hidden;
-            -webkit-font-smoothing: antialiased; /* Kao Chanel */
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* GLAVNI ZAGLAVLJE (Kao cc-header) */
+        /* GLAVNI ZAGLAVLJE */
         .zaglavlje {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
             padding-top: 25px;
-            border-bottom: 1px solid #ffffff; /* Tanka bela linija */
+            border-bottom: 1px solid #ffffff;
             position: relative;
         }
 
-        /* NASLOV (Kao cc-header-top-bar__logo) */
+        /* NASLOV */
         .ime-monaha {
-            font-size: 38px;
+            font-size: 36px; /* Malo manji jer je Helvetica šira */
             font-weight: 600;
-            letter-spacing: 14px; 
+            letter-spacing: 10px; 
             color: #ffffff;
             margin: 0 0 20px 0;
-            padding-left: 14px; /* Centriranje zbog letter-spacing */
+            padding-left: 10px;
             text-align: center;
         }
 
-        /* IKONICE U GORNJEM DESNOM UGLU (Kao cc-header-top-bar__actions-list) */
+        /* IKONICE U GORNJEM DESNOM UGLU */
         .gornji-ikonice {
             position: absolute;
             top: 25px;
@@ -77,7 +78,7 @@
             fill: currentColor;
         }
 
-        /* GLAVNI MENI (Kao cc-menu) */
+        /* GLAVNI MENI */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
@@ -91,8 +92,8 @@
             display: inline-block;
             color: #ffffff;
             text-decoration: none;
-            font-size: 14px; /* Kao Chanel 0.875rem */
-            font-weight: 300; /* Tanak font */
+            font-size: 13px; /* Helvetica je šira, pa malo manji font */
+            font-weight: 400;
             letter-spacing: 2px;
             transition: opacity 0.3s ease;
             background-color: transparent;
@@ -121,7 +122,7 @@
             width: 100%;
         }
 
-        /* --- DONJI DEO (Kao cc-main-content) --- */
+        /* --- DONJI DEO --- */
         .donji-deo {
             flex: 1;
             display: flex;
@@ -144,7 +145,7 @@
         }
 
         .kolona h3 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             letter-spacing: 2px;
             margin-bottom: 15px;
@@ -152,11 +153,11 @@
         }
 
         .kolona p {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 15px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14px;
             font-weight: 300;
             letter-spacing: 1px;
-            line-height: 1.5;
+            line-height: 1.6;
             color: #ffffff;
             text-transform: none; 
         }
@@ -180,8 +181,8 @@
             background: transparent;
             border: none;
             color: #ffffff;
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 16px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14px;
             outline: none;
             letter-spacing: 1px;
             text-transform: lowercase; 
@@ -196,8 +197,8 @@
             background: transparent;
             border: none;
             color: #ffffff;
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 14px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
             cursor: pointer;
@@ -229,8 +230,8 @@
             background: transparent;
             border: none;
             color: #888888;
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 14px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
             cursor: pointer;
@@ -278,7 +279,7 @@
             background-color: #ffffff;
         }
 
-        /* --- DRUŠTVENE MREŽE (Kao cc-footer-locale-social) --- */
+        /* --- DRUŠTVENE MREŽE --- */
         .drustvene-mreze {
             display: flex;
             justify-content: flex-end;
@@ -309,9 +310,9 @@
 
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
-            .ime-monaha { font-size: 32px; letter-spacing: 8px; margin-bottom: 15px; }
+            .ime-monaha { font-size: 28px; letter-spacing: 6px; margin-bottom: 15px; }
             .dugmad-kontejner { gap: 15px; }
-            .dugmad-kontejner a { font-size: 13px; }
+            .dugmad-kontejner a { font-size: 11px; }
             .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; }
             .kolona { width: 100%; }
             .drustvene-mreze { justify-content: center; padding: 15px 0; gap: 25px; }
