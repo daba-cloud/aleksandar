@@ -109,21 +109,24 @@ html, body {
     width: 45%; 
 }
 
+/* NASLOVI U KOLONAMA (CONTACT, NEWSLETTER) - MALO VECI */
 .kolona h3 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 2px;
     margin-bottom: 15px;
     color: #ffffff;
+    text-transform: uppercase;
 }
 
+/* TEKST U KOLONAMA - MANJI I VELIKIM SLOVIMA */
 .kolona p {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
     letter-spacing: 1px;
     line-height: 1.6;
     color: #ffffff;
-    text-transform: none; 
+    text-transform: uppercase; /* Velika slova */
 }
 
 .kolona a {
@@ -145,7 +148,7 @@ html, body {
     background: transparent;
     border: none;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 12px;
     outline: none;
     letter-spacing: 1px;
     text-transform: lowercase; 
