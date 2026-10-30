@@ -53,15 +53,17 @@
             text-align: center;
         }
 
-        /* GLAVNI MENI */
+        /* GLAVNI MENI - SADA POČINJE BLIŽE IVICI */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
-            padding: 5px 40px 15px 40px; 
-            gap: 40px;
+            /* SMANJEN PADDING SA 10% NA 4% */
+            padding: 5px 4% 15px 4%; 
+            /* POVEĆAN GAP NA 40px DA SE REČI RAŠIRE */
+            gap: 40px; 
         }
 
         .dugmad-kontejner a {
@@ -247,7 +249,6 @@
         /* --- DRUGA LINIJA I DRUŠTVENE MREŽE --- */
         .druga-linija {
             width: 100%;
-            /* STANJENA NA 0.5px i SIVA BOJA */
             height: 0.5px;
             background-color: rgba(255, 255, 255, 0.4);
             margin-top: auto; 
@@ -284,7 +285,7 @@
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
             .ime-monaha { font-size: 28px; letter-spacing: 8px; margin-bottom: 8px; }
-            .dugmad-kontejner { gap: 15px; padding: 5px 15px 15px 15px; }
+            .dugmad-kontejner { gap: 15px; padding: 5px 5% 15px 5%; }
             .dugmad-kontejner a { font-size: 10px; }
             .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
             .kolona { width: 100%; }
