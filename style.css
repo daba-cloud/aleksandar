@@ -17,7 +17,7 @@ html, body {
     flex-direction: column;
 }
 
-/* --- ZAGLAVLJE (NASLOV + LINIJA + MENI) --- */
+/* --- ZAGLAVLJE --- */
 .zaglavlje {
     display: flex;
     flex-direction: column;
@@ -28,7 +28,6 @@ html, body {
     border-bottom: 1px solid #ffffff; 
 }
 
-/* NASLOV */
 .ime-monaha {
     font-size: 36px;
     font-weight: 600;
@@ -39,7 +38,6 @@ html, body {
     text-align: center;
 }
 
-/* GLAVNI MENI */
 .dugmad-kontejner {
     display: flex;
     flex-direction: row;
@@ -93,81 +91,11 @@ html, body {
     position: relative;
 }
 
-/* Početni prikaz (Kontakt i Email) */
+/* OVAJ DEO SADA NOSI DRUGU BELU LINIJU NA DNU */
 .pocetni-prikaz {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     width: 100%;
-    padding: 40px 8%;
-    margin-top: 40px;
     border-bottom: 1px solid #ffffff;
-    padding-bottom: 40px; 
-}
-
-.kolona {
-    width: 45%; 
-}
-
-/* NASLOVI U KOLONAMA (CONTACT, NEWSLETTER) - MALO VECI */
-.kolona h3 {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    color: #ffffff;
-    text-transform: uppercase;
-}
-
-/* TEKST U KOLONAMA - MANJI I VELIKIM SLOVIMA */
-.kolona p {
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    line-height: 1.6;
-    color: #ffffff;
-    text-transform: uppercase; /* Velika slova */
-}
-
-.kolona a {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-/* Polje za email */
-.email-unos {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    padding-bottom: 5px;
-    margin-top: 15px;
-}
-
-.email-unos input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 12px;
-    outline: none;
-    letter-spacing: 1px;
-    text-transform: lowercase; 
-}
-
-.email-unos input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-    text-transform: none;
-}
-
-.email-unos button {
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    cursor: pointer;
-    padding: 0 10px;
+    margin-top: auto; /* Gura liniju na dno ovog dela */
 }
 
 /* --- DINAMIČKI SADRŽAJ --- */
@@ -235,11 +163,10 @@ html, body {
     border: none;
 }
 
-/* --- SIVA LINIJA (SA MARGINAMA) I DRUŠTVENE MREŽE --- */
+/* --- SIVA LINIJA I DRUŠTVENE MREŽE --- */
 .linija-kontejner {
     width: 100%;
     padding: 0 8%; 
-    margin-top: auto; 
 }
 
 .druga-linija {
@@ -281,8 +208,6 @@ html, body {
     .ime-monaha { font-size: 28px; letter-spacing: 1px; margin-bottom: 8px; }
     .dugmad-kontejner { gap: 15px; padding: 5px 5% 15px 5%; justify-content: center; }
     .dugmad-kontejner a { font-size: 10px; }
-    .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 20px; padding-bottom: 20px; }
-    .kolona { width: 100%; }
     .linija-kontejner { padding: 0 5%; } 
     .drustvene-mreze { justify-content: center; padding: 15px 0; gap: 25px; }
     .drustvene-mreze svg { width: 18px; height: 18px; }
