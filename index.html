@@ -53,17 +53,17 @@
             text-align: center;
         }
 
-        /* GLAVNI MENI - SADA POČINJE BLIŽE IVICI */
+        /* GLAVNI MENI - SADA PORAVNAT ULEVO SA 8% PADDINGA */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center;
+            /* PORAVNAT ULEVO UMESTO CENTRIRANJA */
+            justify-content: flex-start; 
             width: 100%;
-            /* SMANJEN PADDING SA 10% NA 4% */
-            padding: 5px 4% 15px 4%; 
-            /* POVEĆAN GAP NA 40px DA SE REČI RAŠIRE */
-            gap: 40px; 
+            /* ISTI PADDING KAO DONJI DEO (8%) */
+            padding: 5px 8% 15px 8%; 
+            gap: 35px;
         }
 
         .dugmad-kontejner a {
@@ -115,6 +115,7 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
+            /* PADDING JE 8% - ISTO KAO MENI */
             padding: 40px 8%;
             margin-top: 60px;
         }
