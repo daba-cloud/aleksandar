@@ -37,7 +37,6 @@
             width: 100%;
             padding-top: 20px;
             
-            /* GORNJA LINIJA JE SADA DUPLO DEBLJA (6px umesto 3px) */
             border-top: 6px solid #ffffff; 
             
             border-bottom: 1px solid #ffffff; 
@@ -49,7 +48,8 @@
             font-weight: 600;
             letter-spacing: 12px; 
             color: #ffffff;
-            margin: 0 0 20px 0;
+            /* SMANJENO SA 20px NA 10px */
+            margin: 0 0 10px 0; 
             padding-left: 12px;
             text-align: center;
         }
@@ -61,7 +61,8 @@
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
-            padding: 15px 40px;
+            /* SMANJEN GORNJI PADDING SA 15px NA 5px */
+            padding: 5px 40px 15px 40px; 
             gap: 40px;
         }
 
@@ -283,8 +284,8 @@
 
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
-            .ime-monaha { font-size: 28px; letter-spacing: 8px; margin-bottom: 15px; }
-            .dugmad-kontejner { gap: 15px; padding: 15px; }
+            .ime-monaha { font-size: 28px; letter-spacing: 8px; margin-bottom: 8px; }
+            .dugmad-kontejner { gap: 15px; padding: 5px 15px 15px 15px; }
             .dugmad-kontejner a { font-size: 10px; }
             .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
             .kolona { width: 100%; }
