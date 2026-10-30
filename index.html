@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Aleksandar</title>
     
+    <!-- Barlow Condensed Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* UVEZEN CHANEL / COUTURE FONT ZA GITHUB */
-        @font-face {
-            font-family: 'ChanelFont';
-            /* OVDE STAVI TAČAN NAZIV FAJLA KOJI SI UBACIO NA REPOZITORIJUM */
-            src: url('couture.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -26,58 +22,90 @@
             height: 100%;
             width: 100%;
             color: #ffffff;
-            font-family: 'ChanelFont', sans-serif;
+            font-family: 'Barlow Condensed', sans-serif;
             text-transform: uppercase;
             overflow: hidden;
+            -webkit-font-smoothing: antialiased; /* Kao Chanel */
         }
 
-        /* GLAVNI ZAGLAVLJE */
+        /* GLAVNI ZAGLAVLJE (Kao cc-header) */
         .zaglavlje {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
-            padding-top: 30px;
-            border-bottom: 2px solid #ffffff;
+            padding-top: 25px;
+            border-bottom: 1px solid #ffffff; /* Tanka bela linija */
+            position: relative;
         }
 
-        /* NASLOV */
+        /* NASLOV (Kao cc-header-top-bar__logo) */
         .ime-monaha {
-            font-size: 42px;
-            font-weight: normal;
-            letter-spacing: 12px;
+            font-size: 38px;
+            font-weight: 600;
+            letter-spacing: 14px; 
             color: #ffffff;
-            margin: 0 0 25px 0;
-            padding-left: 12px;
+            margin: 0 0 20px 0;
+            padding-left: 14px; /* Centriranje zbog letter-spacing */
+            text-align: center;
         }
 
-        /* GLAVNI MENI */
+        /* IKONICE U GORNJEM DESNOM UGLU (Kao cc-header-top-bar__actions-list) */
+        .gornji-ikonice {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .gornji-ikonice a {
+            color: #ffffff;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gornji-ikonice a:hover {
+            opacity: 0.5;
+        }
+
+        .gornji-ikonice svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* GLAVNI MENI (Kao cc-menu) */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
         }
 
         .dugmad-kontejner a {
             display: inline-block;
             color: #ffffff;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px; /* Kao Chanel 0.875rem */
+            font-weight: 300; /* Tanak font */
             letter-spacing: 2px;
+            transition: opacity 0.3s ease;
             background-color: transparent;
             padding: 5px 0;
             position: relative;
+            cursor: pointer;
         }
 
-        .dugmad-kontejner a:hover, 
-        .dugmad-kontejner a:active {
-            color: #ffffff; 
+        .dugmad-kontejner a:hover {
+            opacity: 0.6; 
         }
 
-        /* Bela linija ispod reči */
+        /* Bela linija ispod reči na hover */
         .dugmad-kontejner a::after {
             content: '';
             position: absolute;
@@ -93,20 +121,22 @@
             width: 100%;
         }
 
-        /* --- DONJI DEO --- */
+        /* --- DONJI DEO (Kao cc-main-content) --- */
         .donji-deo {
             flex: 1;
             display: flex;
             flex-direction: column;
             width: 100%;
+            position: relative;
         }
 
-        .kolone {
+        /* Početni prikaz (Kontakt i Email) */
+        .pocetni-prikaz {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            padding: 60px 10%; 
+            padding: 40px 8%;
         }
 
         .kolona {
@@ -115,14 +145,16 @@
 
         .kolona h3 {
             font-size: 16px;
+            font-weight: 600;
             letter-spacing: 2px;
             margin-bottom: 15px;
             color: #ffffff;
         }
 
         .kolona p {
-            font-family: 'ChanelFont', sans-serif;
-            font-size: 14px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
             letter-spacing: 1px;
             line-height: 1.5;
             color: #ffffff;
@@ -148,8 +180,8 @@
             background: transparent;
             border: none;
             color: #ffffff;
-            font-family: 'ChanelFont', sans-serif;
-            font-size: 15px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 16px;
             outline: none;
             letter-spacing: 1px;
             text-transform: lowercase; 
@@ -164,26 +196,89 @@
             background: transparent;
             border: none;
             color: #ffffff;
-            font-family: 'ChanelFont', sans-serif;
+            font-family: 'Barlow Condensed', sans-serif;
             font-size: 14px;
+            font-weight: 600;
             letter-spacing: 2px;
             cursor: pointer;
             padding: 0 10px;
-            transition: opacity 0.3s;
         }
 
-        .email-unos button:hover {
-            opacity: 0.5;
+        /* --- DINAMIČKI SADRŽAJ --- */
+        .dinamicki-sadrzaj {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            padding: 20px 8%;
+            display: none; 
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+        }
+
+        .dinamicki-sadrzaj.aktivan {
+            display: flex;
+        }
+
+        /* Dugme CLOSE */
+        .close-dugme {
+            align-self: flex-end;
+            background: transparent;
+            border: none;
+            color: #888888;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .close-dugme:hover {
+            color: #ffffff;
+        }
+
+        .dinamicki-sadrzaj h2 {
+            font-size: 24px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .dinamicki-sadrzaj p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #cccccc;
+            text-transform: none;
+        }
+
+        .video-okvir {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            background-color: #111;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .video-okvir iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* --- DRUGA LINIJA --- */
         .druga-linija {
             width: 100%;
-            height: 2px;
+            height: 1px;
             background-color: #ffffff;
         }
 
-        /* --- DRUŠTVENE MREŽE --- */
+        /* --- DRUŠTVENE MREŽE (Kao cc-footer-locale-social) --- */
         .drustvene-mreze {
             display: flex;
             justify-content: flex-end;
@@ -214,58 +309,53 @@
 
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
-            .ime-monaha {
-                font-size: 32px;
-                letter-spacing: 8px;
-                margin-bottom: 15px;
-            }
-            .dugmad-kontejner {
-                gap: 15px;
-            }
-            .dugmad-kontejner a {
-                font-size: 13px;
-            }
-            .kolone {
-                flex-direction: column;
-                gap: 40px;
-                padding: 30px 5%; 
-            }
-            .kolona {
-                width: 100%;
-            }
-            .drustvene-mreze {
-                justify-content: center;
-                padding: 15px 0;
-                gap: 25px;
-            }
-            .drustvene-mreze svg {
-                width: 18px;
-                height: 18px;
-            }
+            .ime-monaha { font-size: 32px; letter-spacing: 8px; margin-bottom: 15px; }
+            .dugmad-kontejner { gap: 15px; }
+            .dugmad-kontejner a { font-size: 13px; }
+            .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; }
+            .kolona { width: 100%; }
+            .drustvene-mreze { justify-content: center; padding: 15px 0; gap: 25px; }
+            .drustvene-mreze svg { width: 18px; height: 18px; }
+            .dinamicki-sadrzaj { padding: 20px 5%; }
+            .gornji-ikonice { top: 20px; right: 20px; gap: 15px; }
+            .gornji-ikonice svg { width: 18px; height: 18px; }
         }
+
     </style>
 </head>
 <body>
 
     <div class="zaglavlje">
-        <h1 class="ime-monaha">Александар Дабић</h1>
+        <!-- IKONICE U GORNJEM DESNOM UGLU -->
+        <div class="gornji-ikonice">
+            <a href="#" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="#" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+            <a href="#" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+
+        <!-- NASLOV -->
+        <h1 class="ime-monaha">Aleksandar</h1>
         
+        <!-- GLAVNI MENI -->
         <div class="dugmad-kontejner">
-            <a href="ulaz.html">Portal</a>
-            <div class="dugmad-kontejner">
             <a href="ulaz.html">Portal</a>
             <a href="video.html">YouTube</a>
             <a href="player.html">Video</a>
             <a href="chat.html">Chat</a>
-            <a href="#">Blog</a>
-            <a href="#">News</a>
+            <a onclick="prikaziSadrzaj('blog')">Blog</a>
+            <a onclick="prikaziSadrzaj('news')">News</a>
             <a href="tekst.html">Notes</a>
             <a href="audio.html">Audio</a>
         </div>
     </div>
 
+    <!-- DONJI DEO -->
     <div class="donji-deo">
-        <div class="kolone">
+        
+        <!-- Kontakt i Email -->
+        <div class="pocetni-prikaz" id="pocetni-prikaz">
             <div class="kolona">
                 <h3>CONTACT</h3>
                 <p>
@@ -284,40 +374,64 @@
             </div>
         </div>
         
+        <!-- DINAMIČKI SADRŽAJ -->
+        <div class="dinamicki-sadrzaj" id="dinamicki-sadrzaj">
+            <button class="close-dugme" onclick="zatvoriSadrzaj()">CLOSE ✕</button>
+            <div id="sadrzaj-unutra"></div>
+        </div>
+
+        <!-- Druga linija (od ivice do ivice) -->
         <div class="druga-linija"></div>
 
+        <!-- Društvene mreže -->
         <div class="drustvene-mreze">
-            <a href="#" target="_blank" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                </svg>
-            </a>
-            
-            <a href="#" target="_blank" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.svg">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-            </a>
-
-            <a href="#" target="_blank" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-            </a>
-
-            <a href="#" target="_blank" aria-label="WhatsApp">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-            </a>
-
-            <a href="#" target="_blank" aria-label="X">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-            </a>
+            <a href="#" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="#" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+            <a href="#" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
         </div>
+
     </div>
+
+    <script>
+        function prikaziSadrzaj(tip) {
+            const pocetniPrikaz = document.getElementById('pocetni-prikaz');
+            const dinamickiSadrzaj = document.getElementById('dinamicki-sadrzaj');
+            const sadrzajUnutra = document.getElementById('sadrzaj-unutra');
+
+            pocetniPrikaz.style.display = 'none';
+            dinamickiSadrzaj.classList.add('aktivan');
+
+            if (tip === 'blog') {
+                sadrzajUnutra.innerHTML = `
+                    <h2>BLOG</h2>
+                    <p>Dobrodošli na moj blog. Ovde ću deliti svoje misli, ideje i zanimljivosti. Sadržaj uskoro stiže...</p>
+                `;
+            } else if (tip === 'news') {
+                sadrzajUnutra.innerHTML = `
+                    <h2>NEWS</h2>
+                    <div class="video-okvir">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" 
+                            title="YouTube video" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                `;
+            }
+        }
+
+        function zatvoriSadrzaj() {
+            const pocetniPrikaz = document.getElementById('pocetni-prikaz');
+            const dinamickiSadrzaj = document.getElementById('dinamicki-sadrzaj');
+
+            dinamickiSadrzaj.classList.remove('aktivan');
+            pocetniPrikaz.style.display = 'flex';
+            
+            document.getElementById('sadrzaj-unutra').innerHTML = '';
+        }
+    </script>
 
 </body>
 </html>
