@@ -91,18 +91,15 @@ html, body {
     flex-direction: column;
     width: 100%;
     position: relative;
-    /* OVAJ DEO IMA BELU LINIJU NA DNU */
-    border-bottom: 1px solid #ffffff; 
 }
 
-/* --- PROSTOR IZMEĐU LINIJA --- */
-/* Ovaj kontejner drži dinamički sadržaj i ima fiksnu visinu ili se rasteže */
-.prostor-izmedju {
-    flex: 1; /* Zauzima sav prostor između zaglavlja i donje linije */
-    position: relative;
+/* --- PROSTOR ZA SADRŽAJ (IZMEĐU DVE BELA LINIJE) --- */
+.prostor-za-sadrzaj {
+    flex: 1; /* Zauzima sav preostali prostor */
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    /* OVA LINIJA JE DRUGA BELA LINIJA KOJA TI NEDOSTAJE */
+    border-bottom: 1px solid #ffffff; 
 }
 
 /* --- DINAMIČKI SADRŽAJ --- */
@@ -167,10 +164,11 @@ html, body {
     border: none;
 }
 
-/* --- SIVA LINIJA (SA MARGINAMA) I DRUŠTVENE MREŽE --- */
+/* --- SIVA LINIJA I DRUŠTVENE MREŽE --- */
 .linija-kontejner {
     width: 100%;
     padding: 0 8%; 
+    margin-top: 20px; /* Mali razmak od bele linije iznad */
 }
 
 .druga-linija {
