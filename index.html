@@ -63,31 +63,30 @@
             position: relative;
         }
 
-        /* GLAVNI MENI - RASPOREĐEN OD IVICE DO IVICE */
+        /* GLAVNI MENI - GRUPISAN NA SREDINI KAO CHANEL */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-between; /* Ključna izmena */
+            justify-content: center; /* Vraćeno na centar */
             width: 100%;
-            padding: 15px 40px; /* Malo paddinga sa strane da ne dodiruje samu ivicu */
+            padding: 15px 40px;
             border-bottom: 1px solid #ffffff;
-            /* Uklonjen gap jer space-between sam računa razmak */
+            gap: 40px; /* Veći razmak između reči, kao na Chanelu */
         }
 
         .dugmad-kontejner a {
             display: inline-block;
             color: #ffffff;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 400;
+            font-size: 11px; /* Smanjeno sa 13px na 11px */
+            font-weight: 600; /* DODATO BOLD */
             letter-spacing: 2px;
             transition: opacity 0.3s ease;
             background-color: transparent;
             padding: 5px 0;
             position: relative;
             cursor: pointer;
-            /* Sprečava da se reči prelome u više redova */
             white-space: nowrap; 
         }
 
@@ -295,13 +294,12 @@
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
             .ime-monaha { font-size: 20px; letter-spacing: 6px; }
-            /* Na mobilnom se vraćamo na centriranje i manji razmak */
             .dugmad-kontejner { 
                 justify-content: center; 
                 gap: 15px; 
                 padding: 15px; 
             }
-            .dugmad-kontejner a { font-size: 11px; }
+            .dugmad-kontejner a { font-size: 10px; } /* Još manje na mobilnom */
             .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
             .kolona { width: 100%; }
             .drustvene-mreze { justify-content: center; padding: 15px 0; gap: 25px; }
