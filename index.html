@@ -42,14 +42,16 @@
             border-bottom: 1px solid #ffffff; 
         }
 
-        /* NASLOV */
+        /* NASLOV - ZBIJENA SLOVA */
         .ime-monaha {
             font-size: 36px;
             font-weight: 600;
-            letter-spacing: 12px; 
+            /* SMANJENO NA 2px DA SLOVA BUDU SKORO SPOJENA */
+            letter-spacing: 2px; 
             color: #ffffff;
             margin: 0 0 10px 0; 
-            padding-left: 12px;
+            /* UKLONJEN PADDING LEFT */
+            padding-left: 0; 
             text-align: center;
         }
 
@@ -286,7 +288,7 @@
 
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
-            .ime-monaha { font-size: 28px; letter-spacing: 8px; margin-bottom: 8px; }
+            .ime-monaha { font-size: 28px; letter-spacing: 1px; margin-bottom: 8px; }
             .dugmad-kontejner { gap: 15px; padding: 5px 5% 15px 5%; justify-content: center; }
             .dugmad-kontejner a { font-size: 10px; }
             .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
