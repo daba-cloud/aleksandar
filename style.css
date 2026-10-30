@@ -91,13 +91,22 @@ html, body {
     flex-direction: column;
     width: 100%;
     position: relative;
+    /* OVAJ DEO IMA BELU LINIJU NA DNU */
+    border-bottom: 1px solid #ffffff; 
+}
+
+/* --- PROSTOR IZMEĐU LINIJA --- */
+/* Ovaj kontejner drži dinamički sadržaj i ima fiksnu visinu ili se rasteže */
+.prostor-izmedju {
+    flex: 1; /* Zauzima sav prostor između zaglavlja i donje linije */
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* --- DINAMIČKI SADRŽAJ --- */
 .dinamicki-sadrzaj {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: #000000;
@@ -162,7 +171,6 @@ html, body {
 .linija-kontejner {
     width: 100%;
     padding: 0 8%; 
-    margin-top: auto; 
 }
 
 .druga-linija {
