@@ -53,17 +53,18 @@
             text-align: center;
         }
 
-        /* GLAVNI MENI - SADA PORAVNAT ULEVO SA 8% PADDINGA */
+        /* GLAVNI MENI - SADA SE RASTEŽE OD 8% DO 92% */
         .dugmad-kontejner {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            /* PORAVNAT ULEVO UMESTO CENTRIRANJA */
-            justify-content: flex-start; 
+            /* SPACE-BETWEEN DA SE RAŠIRI OD IVICE DO IVICE */
+            justify-content: space-between; 
             width: 100%;
             /* ISTI PADDING KAO DONJI DEO (8%) */
             padding: 5px 8% 15px 8%; 
-            gap: 35px;
+            /* NEMA GAP-A, SPACE-BETWEEN SAM RASPOREĐUJE */
+            gap: 0; 
         }
 
         .dugmad-kontejner a {
@@ -286,7 +287,7 @@
         /* Prilagođavanje za mobilne telefone */
         @media (max-width: 600px) {
             .ime-monaha { font-size: 28px; letter-spacing: 8px; margin-bottom: 8px; }
-            .dugmad-kontejner { gap: 15px; padding: 5px 5% 15px 5%; }
+            .dugmad-kontejner { gap: 15px; padding: 5px 5% 15px 5%; justify-content: center; }
             .dugmad-kontejner a { font-size: 10px; }
             .pocetni-prikaz { flex-direction: column; gap: 40px; padding: 30px 5%; margin-top: 30px; }
             .kolona { width: 100%; }
