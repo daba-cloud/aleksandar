@@ -95,10 +95,10 @@ html, body {
 .pocetni-prikaz {
     width: 100%;
     border-bottom: 1px solid #ffffff;
-    margin-top: auto; /* Gura liniju na dno ovog dela */
+    margin-top: auto; 
 }
 
-/* --- DINAMIČKI SADRŽAJ --- */
+/* --- DINAMIČKI SADRŽAJ (HOVER I KLIK) --- */
 .dinamicki-sadrzaj {
     position: absolute;
     top: 0;
@@ -111,6 +111,8 @@ html, body {
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: auto;
+    /* DODATO DA SE SADRZAJ LEPO POJAVI */
+    z-index: 10;
 }
 
 .dinamicki-sadrzaj.aktivan {
