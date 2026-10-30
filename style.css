@@ -1,3 +1,11 @@
+/* --- UBACIVANJE FONTA --- */
+@font-face {
+    font-family: 'Couture';
+    src: url('Couture.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,7 +17,8 @@ html, body {
     height: 100%;
     width: 100%;
     color: #ffffff;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* ZAMENA FONTA: Sada koristimo 'Couture' */
+    font-family: 'Couture', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
@@ -126,7 +135,7 @@ html, body {
     letter-spacing: 1px;
     line-height: 1.6;
     color: #ffffff;
-    text-transform: uppercase; /* Velika slova */
+    text-transform: uppercase; 
 }
 
 .kolona a {
