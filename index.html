@@ -13,39 +13,31 @@
 </head>
 <body>
 
-    <!-- ZAGLAVLJE (NASLOV I MENI) -->
     <div class="zaglavlje">
         <h1 class="ime-monaha">Aleksandar</h1>
         
         <div class="dugmad-kontejner">
-            <!-- DODATI onmouseenter i onmouseleave -->
-            <a href="ulaz.html" onmouseenter="prikaziHover('portal')" onmouseleave="zatvoriHover()">Portal</a>
-            <a href="video.html" onmouseenter="prikaziHover('video')" onmouseleave="zatvoriHover()">YouTube</a>
-            <a href="player.html" onmouseenter="prikaziHover('player')" onmouseleave="zatvoriHover()">Video</a>
-            <a href="chat.html" onmouseenter="prikaziHover('chat')" onmouseleave="zatvoriHover()">Chat</a>
-            <a onclick="prikaziSadrzaj('blog')" onmouseenter="prikaziHover('blog')" onmouseleave="zatvoriHover()">Blog</a>
-            <a onclick="prikaziSadrzaj('news')" onmouseenter="prikaziHover('news')" onmouseleave="zatvoriHover()">News</a>
-            <a href="tekst.html" onmouseenter="prikaziHover('notes')" onmouseleave="zatvoriHover()">Notes</a>
-            <a href="audio.html" onmouseenter="prikaziHover('audio')" onmouseleave="zatvoriHover()">Audio</a>
-            <a href="code.html" onmouseenter="prikaziHover('code')" onmouseleave="zatvoriHover()">Code</a>
-            <a href="library.html" onmouseenter="prikaziHover('library')" onmouseleave="zatvoriHover()">Library</a>
-            <a href="shop.html" onmouseenter="prikaziHover('shop')" onmouseleave="zatvoriHover()">Online Shop</a>
+            <a href="ulaz.html">Portal</a>
+            <a href="video.html">YouTube</a>
+            <a href="player.html">Video</a>
+            <a href="chat.html">Chat</a>
+            <a onclick="prikaziSadrzaj('blog')">Blog</a>
+            <a onclick="prikaziSadrzaj('news')">News</a>
+            <a href="tekst.html">Notes</a>
+            <a href="audio.html">Audio</a>
+            <a href="code.html">Code</a>
+            <a href="library.html">Library</a>
+            <a href="shop.html">Online Shop</a>
         </div>
     </div>
 
-    <!-- DONJI DEO -->
     <div class="donji-deo">
-        
-        <!-- OVAJ DEO JE DAVAO DRUGU BELU LINIJU -->
         <div class="pocetni-prikaz"></div>
 
-        <!-- DINAMIČKI SADRŽAJ (Blog/News/Hover) -->
         <div class="dinamicki-sadrzaj" id="dinamicki-sadrzaj">
-            <button class="close-dugme" onclick="zatvoriSadrzaj()">CLOSE ✕</button>
             <div id="sadrzaj-unutra"></div>
         </div>
 
-        <!-- SIVA LINIJA -->
         <div class="linija-kontejner">
             <div class="druga-linija"></div>
         </div>
