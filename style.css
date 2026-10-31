@@ -1,4 +1,7 @@
-* {
+Evo ažuriranog i očišćenog CSS koda. Izbrisao sam sve klase i stilove vezane za `.close-dugme` pošto si uklonio dugme za zatvaranje, a zadržan je sav ostali čist i uredan raspored za sajt:
+
+```css
+- {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -91,14 +94,13 @@ html, body {
     position: relative;
 }
 
-/* OVAJ DEO SADA NOSI DRUGU BELU LINIJU NA DNU */
 .pocetni-prikaz {
     width: 100%;
     border-bottom: 1px solid #ffffff;
     margin-top: auto; 
 }
 
-/* --- DINAMIČKI SADRŽAJ (HOVER I KLIK) --- */
+/* --- DINAMIČKI SADRŽAJ --- */
 .dinamicki-sadrzaj {
     position: absolute;
     top: 0;
@@ -111,29 +113,11 @@ html, body {
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: auto;
-    /* DODATO DA SE SADRZAJ LEPO POJAVI */
     z-index: 10;
 }
 
 .dinamicki-sadrzaj.aktivan {
     display: flex;
-}
-
-.close-dugme {
-    align-self: flex-end;
-    background: transparent;
-    border: none;
-    color: #888888;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
-}
-
-.close-dugme:hover {
-    color: #ffffff;
 }
 
 .dinamicki-sadrzaj h2 {
@@ -215,3 +199,5 @@ html, body {
     .drustvene-mreze svg { width: 18px; height: 18px; }
     .dinamicki-sadrzaj { padding: 20px 5%; }
 }
+
+```
