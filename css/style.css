@@ -1,77 +1,99 @@
 /* --- OSNOVNA PODEŠAVANJA --- */
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+:root {
+    --visina-headera: 70px;
+    --crna: #000;
+    --bela: #fff;
+}
+
 body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--crna);
+    color: var(--bela);
+    font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+    padding-top: var(--visina-headera); /* da sadržaj ne ide ispod fiksnog headera */
 }
 
 /* --- FIKSNI MENI --- */
 .zaglavlje {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background-color: #000000;
+    inset: 0 0 auto 0;            /* top/right/bottom/left shorthand */
+    height: var(--visina-headera);
+    background-color: var(--crna);
     z-index: 1000;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    border-top: 6px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
+
+    /* debela bela linija na vrhu bez zauzimanja prostora */
+    box-shadow: inset 0 6px 0 var(--bela);
+    border-bottom: 1px solid var(--bela);
 }
 
-/* FOKUS LOGO NA SREDINI */
-.logo-fokus {
+/* --- DUGMAD (levo/desno) --- */
+.leva-strana,
+.desna-strana {
+    background: none;
+    border: none;
+    color: var(--bela);
+    cursor: pointer;
+    padding: 8px;
+    min-width: 44px;              /* touch target */
+    min-height: 44px;
     display: flex;
-    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+
+.leva-strana:hover,
+.desna-strana:hover,
+.leva-strana:focus-visible,
+.desna-strana:focus-visible {
+    opacity: 0.7;
+    outline: none;
+}
+
+.ikona-hamburger,
+.ikona-covek {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+/* --- LOGO (centriran) --- */
+.logo-fokus {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 4px;
+    text-decoration: none;
 }
 
 .logo-fokus span {
-    background-color: #ffffff;
-    color: #000000;
-    width: 28px;
-    height: 28px;
+    background-color: var(--bela);
+    color: var(--crna);
+    width: 33px;
+    height: 33px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 900;
-    font-size: 16px;
+    font-size: 33px;
 }
 
-/* --- LEVA STRANA (CRTICE) --- */
-.leva-strana {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.crtice {
-    color: #ffffff;
-    font-size: 26px;
-    line-height: 1;
-}
-
-/* --- DESNA STRANA (IKONA COVEKA) --- */
-.desna-strana {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.ikona-covek {
-    width: 26px;
-    height: 26px;
-    color: #ffffff;
-}
+/* --- SADRŽAJ --- */
+.sadrzaj {
+    min-height: calc(100vh - var(--visina-headera));
+    padding: 20px;
 }
