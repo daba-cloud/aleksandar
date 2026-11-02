@@ -188,4 +188,5 @@ body {
     line-height: 1.5;          
     color: #cccccc;            
     margin-bottom: 20px;       
+    text-transform: uppercase; /* UVEK VELIKA SLOVA, bez obzira kako je upisano u HTML-u */
 }
