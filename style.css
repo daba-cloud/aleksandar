@@ -1,203 +1,47 @@
-Evo ažuriranog i očišćenog CSS koda. Izbrisao sam sve klase i stilove vezane za `.close-dugme` pošto si uklonio dugme za zatvaranje, a zadržan je sav ostali čist i uredan raspored za sajt:
-
-```css
-- {
+/* --- OSNOVNA PODEŠAVANJA --- */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, body {
+body {
     background-color: #000000;
-    height: 100%;
-    width: 100%;
     color: #ffffff;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    overflow: hidden;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    flex-direction: column;
+    /* Za sada ne diramo skrolovanje, samo postavljamo pozadinu */
 }
 
-/* --- ZAGLAVLJE --- */
+/* --- FIKSNI MENI --- */
 .zaglavlje {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-top: 20px;
-    border-top: 6px solid #ffffff; 
-    border-bottom: 1px solid #ffffff; 
-}
-
-.ime-monaha {
-    font-size: 36px;
-    font-weight: 600;
-    letter-spacing: 2px; 
-    color: #ffffff;
-    margin: 0 0 10px 0; 
-    padding-left: 0; 
-    text-align: center;
-}
-
-.dugmad-kontejner {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between; 
-    width: 100%;
-    padding: 5px 8% 15px 8%; 
-    gap: 0; 
-}
-
-.dugmad-kontejner a {
-    display: inline-block;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: opacity 0.3s ease;
-    background-color: transparent;
-    padding: 5px 0;
-    position: relative;
-    cursor: pointer;
-    white-space: nowrap; 
-}
-
-.dugmad-kontejner a:hover {
-    opacity: 0.6; 
-}
-
-.dugmad-kontejner a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1.5px;
-    bottom: -3px;
-    left: 0;
-    background-color: #ffffff;
-    transition: width 0.3s ease;
-}
-
-.dugmad-kontejner a:hover::after {
-    width: 100%;
-}
-
-/* --- DONJI DEO --- */
-.donji-deo {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
-}
-
-.pocetni-prikaz {
-    width: 100%;
-    border-bottom: 1px solid #ffffff;
-    margin-top: auto; 
-}
-
-/* --- DINAMIČKI SADRŽAJ --- */
-.dinamicki-sadrzaj {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 70px; /* Visina menija */
     background-color: #000000;
-    padding: 20px 8%;
-    display: none; 
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow-y: auto;
-    z-index: 10;
-}
-
-.dinamicki-sadrzaj.aktivan {
+    z-index: 1000;
     display: flex;
-}
-
-.dinamicki-sadrzaj h2 {
-    font-size: 24px;
-    letter-spacing: 4px;
-    margin-bottom: 15px;
-}
-
-.dinamicki-sadrzaj p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #cccccc;
-    text-transform: none;
-}
-
-.video-okvir {
-    width: 100%;
-    max-width: 800px;
-    aspect-ratio: 16 / 9;
-    background-color: #111;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 10px;
-}
-
-.video-okvir iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* --- SIVA LINIJA I DRUŠTVENE MREŽE --- */
-.linija-kontejner {
-    width: 100%;
-    padding: 0 8%; 
-}
-
-.druga-linija {
-    width: 100%;
-    height: 1px; 
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.drustvene-mreze {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    padding: 15px 8%; 
-    background-color: #000000;
-}
-
-.drustvene-mreze a {
-    color: #ffffff;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    border-top: 6px solid #ffffff; /* Debela bela linija na vrhu */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.drustvene-mreze a:hover {
-    opacity: 0.5;
+/* --- FOKUS LOGO (KOCKICE) --- */
+.logo-fokus {
+    display: flex;
+    gap: 4px;
 }
 
-.drustvene-mreze svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
+.logo-fokus span {
+    background-color: #ffffff;
+    color: #000000;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 16px;
 }
-
-/* Prilagođavanje za mobilne telefone */
-@media (max-width: 600px) {
-    .ime-monaha { font-size: 28px; letter-spacing: 1px; margin-bottom: 8px; }
-    .dugmad-kontejner { gap: 15px; padding: 5px 5% 15px 5%; justify-content: center; }
-    .dugmad-kontejner a { font-size: 10px; }
-    .linija-kontejner { padding: 0 5%; } 
-    .drustvene-mreze { justify-content: center; padding: 15px 0; gap: 25px; }
-    .drustvene-mreze svg { width: 18px; height: 18px; }
-    .dinamicki-sadrzaj { padding: 20px 5%; }
-}
-
-```
