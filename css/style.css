@@ -86,8 +86,8 @@ body {
     position: relative;
     background-color: #000000;  
     
-    /* OVDE JE IZMENA: Gore je sada 80px (bilo je 40px). Ovo spušta sve niže. */
-    padding: 80px 20px 20px 20px; 
+    /* IZMENA: Smanjili smo gornji padding na 20px. Tekst sada kreće odmah ispod menija. */
+    padding: 20px 20px 20px 20px; 
 }
 
 /* --- ŠIRINA SVIH ELEMENATA --- */
@@ -155,10 +155,11 @@ body {
     overflow: hidden;
     background-color: #000000; 
     
-    /* OVO JE LINIJA ZA POMERANJE SAMO VIDEJA: */
-    margin-top: 0px;           
+    /* OVO JE KLJUČNA IZMENA: margin-top: auto gura video na samo dno! */
+    margin-top: auto;           
     
-    margin-bottom: 15px;       
+    /* Mali razmak da video ne dodiruje samu crtu na dnu */
+    margin-bottom: 0px;       
 }
 
 .video-wrapper iframe {
