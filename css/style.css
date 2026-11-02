@@ -2,6 +2,19 @@
    FOKUS - GLAVNI CSS FAJL
    ========================================================= */
 
+/* =========================================================
+   0. OVDE PODEŠAVAŠ VISINU VIDEA
+   ---------------------------------------------------------
+   Broj ispod je razmak između donje linije menija i videa.
+   - 0px   = video je zalepljen uz meni
+   - 20px  = mali razmak ispod menija
+   - 100px = video je spušten niže
+   Veći broj = video i tekst idu NIŽE. Manji broj = idu GORE.
+   ========================================================= */
+:root {
+    --razmak-videa: 20px;
+}
+
 /* --- 1. OSNOVNA PODEŠAVANJA (NE DIRAJ) --- */
 * {
     box-sizing: border-box; 
@@ -10,8 +23,8 @@
 }
 
 body {
-    background-color: #000000; /* Crna pozadina */
-    color: #ffffff;            /* Bela slova */
+    background-color: #000000;
+    color: #ffffff;            
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     overflow: hidden;          
 }
@@ -68,6 +81,11 @@ body {
     overflow-y: scroll;        
     scroll-snap-type: y mandatory; 
     padding-top: 70px;         
+    
+    /* OVO JE ISPRAVKA: kaže pregledaču da svaki post staje
+       ISPOD menija (70px), a ne ispod njega. NE BRIŠI. */
+    scroll-padding-top: 70px;  
+    
     scrollbar-width: none;     
 }
 .feed-container::-webkit-scrollbar { display: none; }
@@ -86,8 +104,9 @@ body {
     position: relative;
     background-color: #000000;  
     
-    /* Gore je 20px, tako da sve kreće odmah ispod menija */
-    padding: 20px 20px 20px 20px; 
+    /* Prva vrednost je razmak od menija do videa.
+       Menja se gore na vrhu fajla, u --razmak-videa. */
+    padding: var(--razmak-videa) 20px 20px 20px; 
 }
 
 /* --- ŠIRINA SVIH ELEMENATA --- */
@@ -100,7 +119,7 @@ body {
 }
 
 /* =========================================================
-   5. VIDEO (SADA JE NA VRHU ZAHVALJUJUĆI ORDER: -1)
+   5. VIDEO (NA VRHU, ISPOD TEKSTA)
    ========================================================= */
 .video-wrapper {
     aspect-ratio: 16 / 9;      
@@ -108,14 +127,11 @@ body {
     border-radius: 12px;       
     overflow: hidden;
     background-color: #000000; 
-    
-    /* OVO JE MAGIJA: Gura video na prvo mesto, iznad teksta */
     order: -1;                  
     
-    /* Mali razmak od menija do videa */
+    /* Ovde je 0, da ne bi duplo gurao nadole. */
     margin-top: 0px;           
     
-    /* RAZMAK IZMEĐU VIDEJA I TEKSTA ISPOD NJEGA */
     margin-bottom: 20px;       
 }
 
