@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.zaglavlje {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #000000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 6px solid #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-fokus {
+    display: flex;
+    gap: 4px;
+}
+
+.logo-fokus span {
+    background-color: #ffffff;
+    color: #000000;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 16px;
+}
