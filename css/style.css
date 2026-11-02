@@ -89,7 +89,7 @@ body {
     display: none; 
 }
 
-/* --- POJEDINAČNI POST (CENTRIRAN) --- */
+/* --- POJEDINAČNI POST (SVE CRNO) --- */
 .post {
     height: calc(100vh - 70px); 
     scroll-snap-align: start; 
@@ -97,9 +97,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #ffffff; /* Bela linija razdvajanja */
     position: relative;
-    background-color: #000000;
+    background-color: #000000; /* ČISTA CRNA */
     padding: 20px;
 }
 
@@ -121,10 +121,11 @@ body {
     z-index: 10;
 }
 
+/* AVATAR JE SADA CRN SA BELIM OKVIROM */
 .post-avatar {
     width: 36px;
     height: 36px;
-    background-color: #333333;
+    background-color: #000000; /* CRNA */
     color: #ffffff;
     font-weight: 700;
     display: flex;
@@ -133,6 +134,7 @@ body {
     border-radius: 50%;
     margin-right: 12px;
     font-size: 14px;
+    border: 1px solid #ffffff; /* Beli okvir da se vidi slovo */
 }
 
 .post-info {
@@ -148,7 +150,7 @@ body {
 
 .post-time {
     font-size: 12px;
-    color: #888888;
+    color: #cccccc; /* Svetlija siva da bi se čitalo */
 }
 
 /* --- NASLOV I TEKST --- */
@@ -163,18 +165,18 @@ body {
 .post-excerpt {
     font-size: 14px;
     line-height: 1.5;
-    color: #cccccc;
+    color: #cccccc; /* Svetlija siva */
     margin-bottom: 15px;
     z-index: 10;
 }
 
-/* --- VIDEO (16:9 FORMAT, CENTRIRAN) --- */
+/* --- VIDEO (16:9 FORMAT, SVE CRNO OKO NJEGA) --- */
 .video-wrapper {
     aspect-ratio: 16 / 9; 
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    background-color: #111;
+    background-color: #000000; /* CRNA */
     margin-bottom: 15px;
 }
 
@@ -187,7 +189,7 @@ body {
     border: none;
 }
 
-/* --- AKCIJE (SAMO PODELI I IZVOR) --- */
+/* --- AKCIJE (PODELI I IZVOR) --- */
 .post-actions {
     display: flex;
     justify-content: space-around;
@@ -218,10 +220,10 @@ body {
     fill: currentColor;
 }
 
-/* --- SPECIFIČNO ZA VESTI (BEZ VIDEO) --- */
+/* --- SPECIFIČNO ZA VESTI (BEZ VIDEO) - SADA JE ČISTA CRNA --- */
 .post.vest-post {
     justify-content: center;
-    background: linear-gradient(135deg, #111 0%, #000 100%);
+    background-color: #000000; /* Umesto gradijenta, čista crna */
 }
 
 .post.vest-post .post-title {
