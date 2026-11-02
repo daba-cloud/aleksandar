@@ -1,183 +1,195 @@
-/* --- OSNOVNA PODEŠAVANJA --- */
+/* =========================================================
+   FOKUS - GLAVNI CSS FAJL
+   Ovde menjaš sve vizuelne stvari na sajtu.
+   Svaki deo koda ima komentar (objašnjenje) na srpskom.
+   ========================================================= */
+
+/* --- 1. OSNOVNA PODEŠAVANJA (NE DIRAJ OVO) --- */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box; /* Sprečava da padding pokvari širinu */
+    margin: 0;              /* Briše podrazumevane margine pretraživača */
+    padding: 0;             /* Briše podrazumevani padding pretraživača */
 }
 
 body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    overflow: hidden; 
+    background-color: #000000; /* BOJA POZADINE CELE STRANICE. #000000 je najtamnija crna. */
+    color: #ffffff;            /* BOJA TEKSTA. #ffffff je čisto bela. */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* FONT SLOVA. Ako želiš drugi, promeni ovde. */
+    overflow: hidden;          /* Sprečava da se cela stranica skroluje (skrolujemo samo unutar feed-a). */
 }
 
-/* --- FIKSNI MENI --- */
+/* =========================================================
+   2. GLAVNI MENI NA VRHU EKRANA (CRTICE, FOKUS, COVEK)
+   ========================================================= */
 .zaglavlje {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background-color: #000000;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    border-top: 6px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
+    position: fixed;           /* Meni je "zakucan" za vrh ekrana i ne pomera se. */
+    top: 0;                    /* Postavlja ga na sam vrh. */
+    left: 0;                   /* Postavlja ga na levu ivicu. */
+    width: 100%;               /* Meni zauzima celu širinu ekrana. */
+    height: 70px;              /* VISINA MENIJA. Ako povećaš broj, meni je deblji (viši). */
+    background-color: #000000; /* BOJA POZADINE MENIJA. Trenutno crna. */
+    z-index: 1000;             /* Osigurava da je meni UVEK iznad videa i teksta. */
+    display: flex;             /* Omogućava lakše raspoređivanje elemenata unutar menija. */
+    justify-content: space-between; /* Raspoređuje elemente: levo, sredina, desno. */
+    align-items: center;       /* Centrira elemente vertikalno unutar menija. */
+    padding: 0 20px;           /* RAZMAK SA STRANE. Prvi broj je gore/dole, drugi levo/desno. */
+    border-top: 6px solid #ffffff; /* DEBLJINA GORNJE BELE LINIJE (iznad ekrana). */
+    border-bottom: 1px solid #ffffff; /* DEBLJINA DONJE BELE LINIJE (ispod menija). */
 }
 
-/* FOKUS LOGO NA SREDINI */
-.logo-fokus {
-    display: flex;
-    gap: 4px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.logo-fokus span {
-    background-color: #ffffff;
-    color: #000000;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    font-size: 16px;
-}
-
-/* --- LEVA STRANA (CRTICE) --- */
+/* --- LEVA STRANA: CRTICE (HAMBURGER MENI) --- */
 .leva-strana {
     display: flex;
     align-items: center;
-    cursor: pointer;
+    cursor: pointer;           /* Menja kursor u "ruku" kada pređeš mišem. */
 }
-
 .crtice {
-    color: #ffffff;
-    font-size: 26px;
-    line-height: 1;
+    color: #ffffff;            /* BOJA CRTICA. */
+    font-size: 26px;           /* VELIČINA CRTICA. */
+    line-height: 1;            /* Razmak između linija (nebitno za ovaj simbol). */
 }
 
-/* --- DESNA STRANA (IKONA COVEKA) --- */
+/* --- SREDINA: FOKUS LOGO (KOCKICE) --- */
+.logo-fokus {
+    display: flex;             /* Ređa kockice jednu pored druge. */
+    gap: 4px;                  /* RAZMAK IZMEĐU KOCKICA (F, O, K, U, S). */
+    position: absolute;        /* Omogućava da logo bude tačno na sredini. */
+    left: 50%;                 /* Postavlja ga na 50% širine ekrana. */
+    transform: translateX(-50%); /* Vraća ga nazad za pola svoje širine, da bi bio savršeno centriran. */
+}
+.logo-fokus span {
+    background-color: #ffffff; /* BOJA POZADINE KOCKICE (trenutno bela). */
+    color: #000000;            /* BOJA SLOVA UNUTAR KOCKICE (trenutno crna). */
+    width: 28px;               /* ŠIRINA KOCKICE. */
+    height: 28px;              /* VISINA KOCKICE. */
+    display: flex;             /* Centrira slovo unutar kockice. */
+    justify-content: center;   
+    align-items: center;       
+    font-weight: 900;          /* DEBLJINA SLOVA (900 je najdeblje). */
+    font-size: 16px;           /* VELIČINA SLOVA UNUTAR KOCKICE. */
+}
+
+/* --- DESNA STRANA: IKONA COVEKA (PROFIL) --- */
 .desna-strana {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
-
 .ikona-covek {
-    width: 26px;
-    height: 26px;
-    color: #ffffff;
+    width: 26px;               /* ŠIRINA IKONE COVEKA. */
+    height: 26px;              /* VISINA IKONE COVEKA. */
+    color: #ffffff;            /* BOJA IKONE (trenutno bela). */
 }
 
-/* --- GLAVNI KONTEJNER ZA SKROLOVANJE --- */
+/* =========================================================
+   3. GLAVNI KONTEJNER ZA SKROLOVANJE (TIKTOK EFEKAT)
+   ========================================================= */
 .feed-container {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory; 
-    padding-top: 70px; 
-    scrollbar-width: none; 
+    height: 100vh;             /* Zauzima celu visinu ekrana. */
+    overflow-y: scroll;        /* Dozvoljava skrolovanje nadole. */
+    scroll-snap-type: y mandatory; /* OVO JE MAGIJA ZA TIKTOK EFEKAT: tera svaku objavu da se "zalepi" za ekran. */
+    padding-top: 70px;         /* MORA BITI ISTO KAO VISINA MENIJA GORE (70px). */
+    scrollbar-width: none;     /* Sakriva traku za skrolovanje (Firefox). */
 }
-
 .feed-container::-webkit-scrollbar {
-    display: none; 
+    display: none;             /* Sakriva traku za skrolovanje (Chrome/Safari). */
 }
 
-/* --- POJEDINAČNI POST (SVE CRNO) --- */
+/* =========================================================
+   4. POJEDINAČNA OBJAVA (POST)
+   ========================================================= */
 .post {
-    height: calc(100vh - 70px); 
-    scroll-snap-align: start; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    border-bottom: 1px solid #ffffff; /* Bela linija razdvajanja */
+    height: calc(100vh - 70px); /* Visina ekrana umanjena za visinu menija. */
+    scroll-snap-align: start;   /* Lepljenje objave na vrh ekrana pri skrolovanju. */
+    display: flex;              /* Omogućava raspored elemenata unutar objave. */
+    flex-direction: column;     /* Ređa elemente jedan ispod drugog. */
+    align-items: center;        /* Centrira elemente horizontalno. */
+    justify-content: flex-start; /* Poravnava elemente na vrh objave. */
+    border-bottom: 1px solid #ffffff; /* BELA LINIJA IZMEĐU OBJAVA. Ako želiš deblju, stavi 2px ili 3px. */
     position: relative;
-    background-color: #000000; /* ČISTA CRNA */
-    padding: 30px 20px 20px 20px; /* GORE 80px, LEVO/DESNO 20px, DOLE 20px */
+    background-color: #000000;  /* BOJA POZADINE OBJAVE (crna). */
+    
+    /* PADDING: Gore, Desno, Dole, Levo */
+    padding: 40px 20px 20px 20px; /* GORNJI RAZMAK (40px) gura tekst nadole. Smanji broj da ide gore. */
 }
 
-/* --- SVI ELEMENTI UNUTAR POSTA IMAJU ISTU ŠIRINU --- */
+/* --- ŠIRINA SVIH ELEMENATA UNUTAR OBJAVE --- */
 .post-header, 
 .post-title, 
 .post-excerpt, 
-.video-wrapper, 
-.post-actions {
-    width: 100%;
-    max-width: 450px;
+.video-wrapper {
+    width: 100%;               /* Zauzima svu dostupnu širinu. */
+    max-width: 450px;          /* MAKSIMALNA ŠIRINA. Ako želiš širi sadržaj, povećaj na 500px ili 600px. */
 }
 
-/* --- ZAGLAVLJE POSTA --- */
+/* =========================================================
+   5. ZAGLAVLJE OBJAVE (KRUŽIĆ SA SLOVOM, IME, VREME)
+   ========================================================= */
 .post-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    z-index: 10;
+    display: flex;             /* Ređa kružić i tekst jedan pored drugog. */
+    align-items: center;       /* Centrira ih vertikalno. */
+    margin-bottom: 15px;       /* RAZMAK ISPOD ZAGLAVLJA (između imena i naslova). */
 }
 
-/* AVATAR JE SADA CRN SA BELIM OKVIROM */
 .post-avatar {
-    width: 36px;
-    height: 36px;
-    background-color: #000000; /* CRNA */
-    color: #ffffff;
-    font-weight: 700;
+    width: 36px;               /* ŠIRINA KRUŽIĆA SA SLOVOM. */
+    height: 36px;              /* VISINA KRUŽIĆA SA SLOVOM. */
+    background-color: #000000; /* BOJA POZADINE KRUŽIĆA (crna). */
+    color: #ffffff;            /* BOJA SLOVA UNUTAR KRUŽIĆA. */
+    font-weight: 700;          /* DEBLJINA SLOVA. */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    margin-right: 12px;
-    font-size: 14px;
-    border: 1px solid #ffffff; /* Beli okvir da se vidi slovo */
+    border-radius: 50%;        /* Pravi kružić (50% zaobljenja). */
+    margin-right: 12px;        /* RAZMAK IZMEĐU KRUŽIĆA I IMENA. */
+    font-size: 14px;           /* VELIČINA SLOVA UNUTAR KRUŽIĆA. */
+    border: 1px solid #ffffff; /* BELI OKVIR OKO KRUŽIĆA (da se vidi na crnoj pozadini). */
 }
 
 .post-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    /* Ređa ime i vreme jedno ispod drugog. */
 }
 
 .post-name {
     font-weight: 700;
-    font-size: 14px;
-    color: #ffffff;
+    font-size: 14px;           /* VELIČINA IMENA IZVORA (npr. RTS, N1). */
+    color: #ffffff;            /* BOJA IMENA. */
 }
 
 .post-time {
-    font-size: 12px;
-    color: #cccccc; /* Svetlija siva da bi se čitalo */
+    font-size: 12px;           /* VELIČINA TEKSTA "pre 1 sat". */
+    color: #cccccc;            /* BOJA VREMENA (svetlo siva). */
 }
 
-/* --- NASLOV I TEKST --- */
+/* =========================================================
+   6. NASLOV I TEKST (ISPOD IMENA)
+   ========================================================= */
 .post-title {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 10px;
-    z-index: 10;
+    font-size: 24px;           /* VELIČINA GLAVNOG NASLOVA. Povećaj za krupniji tekst. */
+    font-weight: 700;          /* DEBLJINA NASLOVA. */
+    line-height: 1.3;          /* RAZMAK IZMEĐU REDOVA NASLOVA. */
+    margin-bottom: 10px;       /* RAZMAK ISPOD NASLOVA. */
+    text-transform: uppercase; /* TERA NASLOV DA BUDE VELIKIM SLOVIMA. Obriši liniju ako ne želiš. */
 }
 
 .post-excerpt {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #cccccc; /* Svetlija siva */
-    margin-bottom: 15px;
-    z-index: 10;
+    font-size: 16px;           /* VELIČINA TEKSTA OPISA. */
+    line-height: 1.5;          /* RAZMAK IZMEĐU REDOVA OPISA. */
+    color: #cccccc;            /* BOJA OPISA (svetlo siva). */
+    margin-bottom: 20px;       /* RAZMAK ISPOD OPISA DO VIDEJA. */
 }
 
-/* --- VIDEO (16:9 FORMAT, SVE CRNO OKO NJEGA) --- */
+/* =========================================================
+   7. VIDEO (16:9 FORMAT)
+   ========================================================= */
 .video-wrapper {
-    aspect-ratio: 16 / 9; 
+    aspect-ratio: 16 / 9;      /* FORMAT VIDEJA. 16:9 je standardni široki format. */
     position: relative;
-    border-radius: 12px;
+    border-radius: 12px;       /* ZAOBLJENOST IVICA VIDEJA. */
     overflow: hidden;
-    background-color: #000000; /* CRNA */
-    margin-bottom: 15px;
+    background-color: #000000; 
+    margin-bottom: 15px;       /* RAZMAK ISPOD VIDEJA (ako ima nečega ispod). */
 }
 
 .video-wrapper iframe {
@@ -187,53 +199,4 @@ body {
     width: 100%;
     height: 100%;
     border: none;
-}
-
-/* --- AKCIJE (PODELI I IZVOR) --- */
-.post-actions {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-bottom: 10px;
-    z-index: 10;
-}
-
-.action-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    color: #ffffff;
-    font-size: 12px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.action-btn:hover {
-    opacity: 0.7;
-}
-
-.action-btn svg {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-}
-
-/* --- SPECIFIČNO ZA VESTI (BEZ VIDEO) - SADA JE ČISTA CRNA --- */
-.post.vest-post {
-    justify-content: center;
-    background-color: #000000; /* Umesto gradijenta, čista crna */
-}
-
-.post.vest-post .post-title {
-    font-size: 26px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.post.vest-post .post-excerpt {
-    font-size: 16px;
-    text-align: justify;
-    margin-bottom: 30px;
 }
