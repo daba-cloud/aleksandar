@@ -114,15 +114,15 @@ body {
 }
 
 /* --- ŠIRINA SVIH ELEMENATA --- */
-.post-header, 
+/* Ovde sam IZBACIO .post-header jer ćemo njemu posebno dodati text-align: left ispod */
 .post-title, 
 .post-subtitle,
 .post-line,
 .post-excerpt, 
 .video-wrapper {
     width: 100%;               
-    max-width: 600px; /* Malo šire da bi stao tekst kao na generatoru */
-    text-align: center; /* SVE JE CENTRIRANO */
+    max-width: 600px; 
+    text-align: center; /* SVE OVO OSTAJE CENTRIRANO */
 }
 
 /* =========================================================
@@ -154,8 +154,11 @@ body {
 .post-header {
     display: flex;             
     align-items: center;       
-    justify-content: center;   /* Centriramo i ime izvora */
+    justify-content: flex-start; /* IZMENA: Gura sadržaj na levu stranu */
+    text-align: left;            /* IZMENA: Tekst unutar zaglavlja ide ulevo */
     margin-bottom: 20px;       
+    width: 100%;
+    max-width: 600px;
 }
 
 .post-avatar {
@@ -173,7 +176,11 @@ body {
     border: 1px solid #ffffff; 
 }
 
-.post-info { display: flex; flex-direction: column; text-align: left; }
+.post-info { 
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; /* Osigurava da ime i vreme idu ulevo */
+}
 .post-name { font-weight: 700; font-size: 14px; color: #ffffff; }
 .post-time { font-size: 12px; color: #cccccc; }
 
