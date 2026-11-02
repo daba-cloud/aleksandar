@@ -86,8 +86,8 @@ body {
     position: relative;
     background-color: #000000;  
     
-    /* OVO POMERA CEO TEKST GORE/DOLE. Smanji 40px da ide gore. */
-    padding: 40px 20px 20px 20px; 
+    /* OVDE JE IZMENA: Gore je sada 80px (bilo je 40px). Ovo spušta sve niže. */
+    padding: 80px 20px 20px 20px; 
 }
 
 /* --- ŠIRINA SVIH ELEMENATA --- */
@@ -155,9 +155,8 @@ body {
     overflow: hidden;
     background-color: #000000; 
     
-    /* OVO JE LINIJA ZA POMERANJE VIDEJA: */
-    margin-top: 0px;           /* POVEĆAJ OVAJ BROJ (npr. 30px) da spustiš video nadole. */
-                               /* STAVI MINUS (npr. -20px) da podigneš video nagore. */
+    /* OVO JE LINIJA ZA POMERANJE SAMO VIDEJA: */
+    margin-top: 0px;           
     
     margin-bottom: 15px;       
 }
