@@ -96,11 +96,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-bottom: 1px solid #ffffff; /* Bela linija razdvajanja */
     position: relative;
     background-color: #000000; /* ČISTA CRNA */
-    padding: 20px;
+    padding: 200px 20px 20px 20px; /* GORE 80px, LEVO/DESNO 20px, DOLE 20px */
 }
 
 /* --- SVI ELEMENTI UNUTAR POSTA IMAJU ISTU ŠIRINU --- */
