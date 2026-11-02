@@ -1,99 +1,237 @@
 /* --- OSNOVNA PODEŠAVANJA --- */
-*,
-*::before,
-*::after {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-:root {
-    --visina-headera: 70px;
-    --crna: #000;
-    --bela: #fff;
-}
-
 body {
-    background-color: var(--crna);
-    color: var(--bela);
-    font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
-    padding-top: var(--visina-headera); /* da sadržaj ne ide ispod fiksnog headera */
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow: hidden; 
 }
 
 /* --- FIKSNI MENI --- */
 .zaglavlje {
     position: fixed;
-    inset: 0 0 auto 0;            /* top/right/bottom/left shorthand */
-    height: var(--visina-headera);
-    background-color: var(--crna);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #000000;
     z-index: 1000;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-
-    /* debela bela linija na vrhu bez zauzimanja prostora */
-    box-shadow: inset 0 6px 0 var(--bela);
-    border-bottom: 1px solid var(--bela);
+    border-top: 6px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
 }
 
-/* --- DUGMAD (levo/desno) --- */
-.leva-strana,
-.desna-strana {
-    background: none;
-    border: none;
-    color: var(--bela);
-    cursor: pointer;
-    padding: 8px;
-    min-width: 44px;              /* touch target */
-    min-height: 44px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.2s;
-}
-
-.leva-strana:hover,
-.desna-strana:hover,
-.leva-strana:focus-visible,
-.desna-strana:focus-visible {
-    opacity: 0.7;
-    outline: none;
-}
-
-.ikona-hamburger,
-.ikona-covek {
-    width: 28px;
-    height: 28px;
-    fill: currentColor;
-}
-
-/* --- LOGO (centriran) --- */
+/* FOKUS LOGO NA SREDINI */
 .logo-fokus {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     gap: 4px;
-    text-decoration: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .logo-fokus span {
-    background-color: var(--bela);
-    color: var(--crna);
-    width: 33px;
-    height: 33px;
+    background-color: #ffffff;
+    color: #000000;
+    width: 28px;
+    height: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 900;
-    font-size: 33px;
+    font-size: 16px;
 }
 
-/* --- SADRŽAJ --- */
-.sadrzaj {
-    min-height: calc(100vh - var(--visina-headera));
+/* --- LEVA STRANA (CRTICE) --- */
+.leva-strana {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.crtice {
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 1;
+}
+
+/* --- DESNA STRANA (IKONA COVEKA) --- */
+.desna-strana {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ikona-covek {
+    width: 26px;
+    height: 26px;
+    color: #ffffff;
+}
+
+/* --- GLAVNI KONTEJNER ZA SKROLOVANJE --- */
+.feed-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; 
+    padding-top: 70px; 
+    scrollbar-width: none; 
+}
+
+.feed-container::-webkit-scrollbar {
+    display: none; 
+}
+
+/* --- POJEDINAČNI POST (CENTRIRAN) --- */
+.post {
+    height: calc(100vh - 70px); 
+    scroll-snap-align: start; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    background-color: #000000;
     padding: 20px;
+}
+
+/* --- SVI ELEMENTI UNUTAR POSTA IMAJU ISTU ŠIRINU --- */
+.post-header, 
+.post-title, 
+.post-excerpt, 
+.video-wrapper, 
+.post-actions {
+    width: 100%;
+    max-width: 450px;
+}
+
+/* --- ZAGLAVLJE POSTA --- */
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    z-index: 10;
+}
+
+.post-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #333333;
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.post-time {
+    font-size: 12px;
+    color: #888888;
+}
+
+/* --- NASLOV I TEKST --- */
+.post-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    z-index: 10;
+}
+
+.post-excerpt {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #cccccc;
+    margin-bottom: 15px;
+    z-index: 10;
+}
+
+/* --- VIDEO (16:9 FORMAT, CENTRIRAN) --- */
+.video-wrapper {
+    aspect-ratio: 16 / 9; 
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #111;
+    margin-bottom: 15px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- AKCIJE (SAMO PODELI I IZVOR) --- */
+.post-actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+    z-index: 10;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #ffffff;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.action-btn:hover {
+    opacity: 0.7;
+}
+
+.action-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* --- SPECIFIČNO ZA VESTI (BEZ VIDEO) --- */
+.post.vest-post {
+    justify-content: center;
+    background: linear-gradient(135deg, #111 0%, #000 100%);
+}
+
+.post.vest-post .post-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.post.vest-post .post-excerpt {
+    font-size: 16px;
+    text-align: justify;
+    margin-bottom: 30px;
 }
